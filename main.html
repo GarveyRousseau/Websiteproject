@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+
+  TODO LIST                             | СПИСОК ЗАДАЧ
+      1. PARALAX BG                     |    1. ФОН - ПАРАЛАКС
+        1.1. BACKGROUND LAYERED PHOTO   |        1.1. ФОТО ФОНА СО СЛОЯМИ
+        1.2. JS PARALAX  EFFECT         |        1.2. JS ЭФФЕКТ ПАРАЛАКСА
+      2. BETTER POPUPS AND POSTLIST     |    2. УЛУЧШЕНЫЕ ОКНА И СПИСОК ПОСТОВ
+        2.1. BG                         |        2.1. ФОН
+      3. REDO THE DESIGN                |    3. ПЕРЕДЕЛАТЬ ДИЗАЙН
+        3.1. COLOURS                    |        3.1. ЦВЕТА
+        3.2. BLUR                       |        3.2. БЛЮР
+        3.3. ANIMATIONS                 |        3.3. АНИМАЦИИ
+
+  -->
+
+<head>
+  <!-- SRC SCRIPTS | СКРИПТЫ - ССЫЛКИ -->
+    <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script>   <!-- Icons | Иконки -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>   <!-- Particles.js lib | Библиотека партиклов -->
+  <!-- WRITTEN SCRIPTS | НАПИСАННЫЕ СКРИПТЫ -->
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const postList       = document.getElementById('postList');
+  const postPopup      = document.getElementById('postPopup');
+  const popupText      = document.getElementById('popupText');
+  const closePopup     = document.getElementById('closePopup');
+  const postForm       = document.getElementById('postForm');
+  const postContent    = document.getElementById('postContent');
+  const postName       = document.getElementById('postName');
+  const postDate       = document.getElementById('postDate');
+  const postHeading    = document.getElementById('postHeading');
+  const submitPostBtn  = document.getElementById('submitPost');
+  const openFormBtn    = document.getElementById('openPostForm');
+  const openListBtn    = document.getElementById('openPostList');
+  const listPopup      = document.getElementById('postListPopup');
+  const closeListBtn   = document.getElementById('closePopupList');
+
+  // Toggle the post form
+  openFormBtn.addEventListener('click', () => {
+    postForm.style.display = postForm.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Open the popup to display post details
+  function openPopup(content) {
+    popupText.innerHTML = content;
+    postPopup.classList.add('show');
+    listPopup.classList.remove('show');
+  }
+
+  // Submit post and add to list
+  submitPostBtn.addEventListener('click', () => {
+    const txt = postContent.value.trim();
+    const nm  = postName.value.trim();
+    const dt  = postDate.value.trim();
+    const hd  = postHeading.value.trim();
+    if (!txt || !nm || !dt || !hd) return;
+
+    const li = document.createElement('li');
+    li.textContent = `${hd} — ${nm} (${dt})`;
+    li.addEventListener('click', () => {
+      listPopup.classList.remove('show');
+      listPopup.classList.add('hide');
+      setTimeout(() => openPopup(
+        `<strong>${hd}</strong><br>by ${nm} (${dt})<br><br>${txt}`
+      ), 300);
+    });
+
+    postList.appendChild(li);
+
+    // Clear form fields and hide the form
+    postHeading.value = postName.value = postDate.value = postContent.value = '';
+    postForm.style.display = 'none';
+  });
+});
+
+  </script>  <!-- DOM Manipulation (Post Form, List, and Popup Handling) | Система постов -->
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  particlesJS('particles-js', {
+    "particles": {
+      "number": {
+        "value": 71,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#000000"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 6
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 4,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 173,
+        "color": "#000000",
+        "opacity": 0.4,
+        "width": 2
+      },
+      "move": {
+        "enable": true,
+        "speed": 3,
+        "direction": "bottom-right",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 2295,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 152,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  });
+});
+
+  </script>  <!-- Particles.js Configuration | Конфигурация партиклов -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const postList       = document.getElementById('postList');
+  const listPopup      = document.getElementById('postListPopup');
+  const closeListBtn   = document.getElementById('closePopupList');
+  const openListBtn    = document.getElementById('openPostList');
+  const postDiv        = document.getElementById('Posts');
+
+  // OPEN list
+  openListBtn.addEventListener('click', () => {
+    postDiv.classList.remove('hide');
+    postDiv.classList.add('show')
+    listPopup.classList.remove('hide');
+    listPopup.classList.add('show');
+    postPopup.classList.remove('show', 'hide');
+  });
+
+  // CLOSE list
+  closeListBtn.addEventListener('click', () => {
+    animateHide(listPopup);
+  });
+
+  // Close post popup
+  closePopup.addEventListener('click', () => {
+    postPopup.classList.remove('show');
+    postPopup.classList.add('hide');
+    setTimeout(() => {
+      listPopup.classList.remove('hide');
+      listPopup.classList.add('show');
+    }, 300);
+  });
+
+  // Open the popup to display post details
+  function openPopup(content) {
+    popupText.innerHTML = content;
+    postPopup.classList.add('show');
+    listPopup.classList.remove('show');
+  }
+
+  // Animate hide popup
+  function animateHide(popupEl) {
+    popupEl.classList.remove("show");
+    postDiv.classList.remove("show");
+    popupEl.classList.add("hide");
+    postDiv.classList.add("hide");
+    function onAnimEnd(e) {
+        e.target.classList.remove("hide");
+        // (Optionally: set display:none or other final hide state here)
+    }
+    popupEl.addEventListener("animationend", onAnimEnd, { once: true });
+    postDiv.addEventListener("animationend", onAnimEnd, { once: true });
+    }
+  // Clicking outside of popups
+  window.addEventListener('click', e => {
+    if (e.target === postPopup) {
+      postPopup.classList.remove('show');
+      postPopup.classList.add('hide');
+      setTimeout(() => {
+        listPopup.classList.remove('hide');
+        listPopup.classList.add('show');
+      }, 300);
+    }
+    if (e.target === listPopup) {
+      listPopup.classList.remove('show');
+      listPopup.classList.add('hide');
+      postDiv.classList.remove('show');
+      postDiv.classList.add('hide');
+    }
+  });
+});
+
+  </script>  <!-- Popup and List Popup handle | Окна и Окно списка постов -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harvey & Friends | Exploration Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
+  <style>
+
+/*    COLOR TAGS | ЦВЕТА
+
+        #00d4ff – Electric Cyan – used in infinite lines + section titles (h2)
+        #00000000 – Fully Transparent Black – part of infinite line background
+        #000000 – Pure Black – used in header, footer, inputs, section backgrounds, general base
+        #0000004d – 30% Transparent Black – used in #welcometext background
+        #00000066 – 40% Transparent Black – used in main content background
+        #00000080 – 50% Transparent Black – used in box shadows
+        #000000b3 – 70% Transparent Black – used in forms background
+        #000000cc – 80% Transparent Black – used in popup overlay
+        #ffa0a0 – Soft Rose Pink – used in titles, button backgrounds, borders, footer titles
+        #ffffff – White – used as main text color + social links
+        #17171b – Charcoal Black – used in form text fields, text for buttons
+        #00646433 – Teal (20% Transparent) – used in .add-post-btn background
+        #222222 – Dark Gray – used for popup content background
+
+        Particles Background Gradient Colors:
+
+        #9ccfdf – Sky Blue – particles gradient start
+        #eaac8b – Soft Coral – particles gradient mid (used twice)
+        #ecbaa1 – Warm Peach – particles gradient transition
+        #e56b6f – Dusty Rose – particles gradient deeper tone
+        #b56576 – Muted Mauve – particles gradient rich mid
+        #6d597a – Soft Eggplant – particles gradient dusk tone
+        #355070 – Deep Indigo Blue – particles gradient end
+
+        Paralax Background Colors:
+
+        #421c00 – Rich Brown – Nearest layer      | https://i.imgur.com/DUUXEho.png
+        #702f00 – Warm Copper – Second layer      | https://i.imgur.com/XYhNRvd.png
+        #9e4200 – Burnt Orange – Third layer      | https://i.imgur.com/PVSiTv6.png
+        #cc5500 – Deep Amber – Fourth layer       | https://i.imgur.com/gCXDtTs.png
+        #fa6800 – Vibrant Tangerine – Fifth layer | https://i.imgur.com/5XX95Rt.png
+        #ff8229 – Bold Orange – Sixth layer       | https://i.imgur.com/jIQkM0H.png
+        #ff9d57 – Soft Apricot – Farthest layer   | https://i.imgur.com/mXfgSDf.png
+    */
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html { height:100%; font-family:'Inter',sans-serif; background: #eaac8b; color:#ffffff; text-align:center; overflow-x:hidden; position:relative; }
+    .infinite-line { position:fixed; left:0; width:200%; height:4px; background:linear-gradient(to right,#ffa0a0 50%,#00000000 50%); background-size:40px 4px; z-index:3; }
+    .infinite-line.left { top:0; animation:moveLineLeft 2s linear infinite; }
+    .infinite-line.right { bottom:0; animation:moveLineRight 2s linear infinite; }
+    header { position:relative; z-index:2; background:#000000; padding:1rem 0rem; }
+    #welcometext {position:relative; z-index:2; background:#0000004d; padding:1rem 0rem; }
+    .titlebar { display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:auto; }
+    .titlebar h1 { color:#ffa0a0; font-weight:600; }
+    .titleend,.titlebarsocials p { margin:0.2rem 0; }
+    .titlebarsocials a { color:#ffffff; text-decoration:none; }
+    .titleend {display:flex; justify-content:center; align-items:center; margin: 0 10em; border-radius: 0, 0, 10px, 10px; flex-direction: column;}
+    .titleenditems {justify-content: space-between;}
+    main { max-width:1000px; margin:2rem auto; padding:2rem; background:#00000066; border-radius:20px; box-shadow:0 8px 24px #00000080; position:relative; z-index:1; }
+    section { margin-bottom:3rem; padding:2rem; background:#ffffff0d; border-radius:16px; box-shadow:0 6px 16px #00000066; }
+    h2 { color:#ffa0a0; margin-bottom:1rem; }
+    p { line-height:1.6; }
+    footer { width:100%; padding:1rem 0; background:#000000; position:relative; z-index:1; margin-top:2rem; animation:none; }
+    .footerline { max-width:1000px; margin:auto; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; }
+    .footerlinecredits, .footerlineinfo { margin:1rem; text-align:left; }
+    .footerlinecredits h3 { margin-bottom:0.5rem; color:#ffa0a0; }
+    .footerlinecredits ul { list-style:none; padding:0; }
+    .footerlinecredits li::before { content:'\1F338'; margin-right:8px; }
+    .footerlineinfo p { max-width:300px; }
+    .footerlineimg { max-width:100px; }
+    main, section:not(#welcometext) { animation:fadeInUp 1.5s ease forwards; }
+    section:not(#welcometext):hover { transform:translateY(-5px); box-shadow:0 12px 30px #000000b3; transition:all 0.3s ease; }
+    @media(max-width:600px) {
+    .titlebar { flex-direction:column; }
+    .infinite-line { display:none; }
+    section { padding:1rem; } }
+    #welcometext { width:100vw; margin:0; box-shadow:none; animation:none; border-radius:0; background: #00000066; background-size: cover;}
+    .post-form { display:none; margin-top:1rem; background:#000000b3; padding:1rem; border-radius:10px; justify-content:center; min-width:75vw; flex-direction: column; align-items: center;}
+    .post-form textarea, #postName, #postDate, #postHeading { width:80%; padding:0.5rem; margin-bottom:0.5rem; background:#17171b; color:#ffffff; border:1px solid #ffa0a0; border-radius:6px; }
+    .button { padding:0.5rem 1rem; border:none; background:#ffa0a0; color:#17171b; border-radius:6px; cursor:pointer; }
+    .mainpopup {  display: none;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; background: rgba(0,0,0,0.4);  justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
+    .mainpopup.show {  display: flex;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; background: rgba(0,0,0,0.4);  justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
+    .mainpopup.hide {animation: popupOut 0.3s ease forwards;}
+    .popup {  display: none;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
+    .popup.show { display: flex; opacity: 1; top:0; left:0; width:100%; height:100%; justify-content:center; align-items:center; z-index:5; backdrop-filter: blur(8px);  animation: popupIn 0.4s ease forwards;}
+    .popup.hide {animation: popupOut 0.3s ease forwards;}
+    .popup-content { display:flex; background:#222222; padding:2rem; border-radius:12px; max-width:90%; text-align:center; align-items:center; flex-direction:column;}
+    .popup-content button { margin-top:1rem; background:#ffa0a0; color:#17171b; border:none; padding:0.5rem 1rem; border-radius:6px; cursor:pointer; }
+    #postList { list-style: none; padding: 0; margin: 2rem 0; position: relative; }
+    #postList li { margin: 0.5rem 0; background: #00000080; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;width: fit-content; transition: all 0.3s; transform: translateX(0); }
+    #particles-js {  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;background: linear-gradient(175deg, #9ccfdf 0%, #eaac8b 50%, #ecbaa1 55%, #eaac8b 60%, #e56b6f 70%, #b56576 80%, #6d597a 90%, #355070 100%);}
+    #postListPopup .popup-content { background:#222222; padding:2rem; border-radius:12px; max-width:90%; text-align:left; color:#ffffff; }
+    #postListPopup ul { list-style:none; padding:0; max-height:300px; overflow-y:auto; }
+    #postListPopup ul li { margin:0.5rem 0; }
+
+
+  /*ANIMATIONS*/
+
+    @keyframes popupIn {
+      0% { opacity: 0;  backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
+      100% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }}
+    @keyframes popupOut {
+      0% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+      100% { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }}
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes moveLineLeft { from{background-position:0 0;} to{background-position:40px 0;} }
+    @keyframes moveLineRight { from{background-position:0 0;} to{background-position:-40px 0;} }
+  </style>
+</head>
+<body>
+ <div id="particles-js"></div>
+  <div class="infinite-line left"></div>
+  <div class="infinite-line right"></div>
+
+  <header>
+    <div class="titlebar">
+      <h1>Just a simple <strong>Canvas</strong></h1>
+      <div class="titlebarsocials">
+        <p><a href="https://t.me/HarveyTheFoxik"><i class="fa-brands fa-telegram"></i> Harvey Rousseau</a></p>
+        <p><a href="https://t.me/marvector"><i class="fa-brands fa-telegram"></i> Marvector</a></p>
+        <p><a href="https://t.me/Procionnn"><i class="fa-brands fa-telegram"></i> Procionnnn</a></p>
+        <p><a href="https://t.me/dsfghiuojhyhljh"><i class="fa-brands fa-telegram"></i> UwU_platok_WuW</a></p>
+      </div>
+    </div>
+  </header>
+  <section id="welcometext">
+    <h2>Welcome!</h2>
+    <p>Hewwo everyone, sooooooo this site is something like a news channel... Me and my friends gonna add cool stuff here. It's gonna be interesting...</p>
+  </section>
+  <header>
+    <div class="titleend">
+      <div class="titleendposts">
+        <div class="titleenditems">
+          <div class="titleendbuttons">
+            <button id="openPostForm" class="button">Add Post</button>
+            <button id="openPostList" class="button">Post List</button>
+          </div>
+          <div class="titleendtext">
+
+          </div>
+        </div>
+        <div id="postForm" class="post-form">
+          <input id="postHeading" type="text" placeholder="Name it..."><br>
+          <input id="postName" type="text" placeholder="Your name..."><br>
+          <input id="postDate" type="date" placeholder="Date (YYYY-MM-DD)..."><br>
+          <textarea id="postContent" rows="3" placeholder="One word goes after another... Write something"></textarea><br>
+          <button id="submitPost" class="button">Submit</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  </main>
+  <div id="Posts" class="mainpopup">
+    <div id="postPopup" class="popup">
+      <div id="postContent" class="popup-content">
+        <div id="popupText"></div>
+        <button id="closePopup" class="button">Back...</button>
+      </div>
+    </div>
+    <div id="postListPopup" class="popup">
+    <div id="postListContent" class="popup-content">
+      <h2>This Is Posts by people:</h2>
+      <div>
+         <ul id="postList"></ul>
+      </div>
+     <button id="closePopupList" class="button">Close</button>
+    </div>
+  </div>
+  </div>
+  <footer>
+    <div class="footerline">
+      <div class="footerlinecredits">
+        <h3>Credits</h3>
+        <ul>
+          <li>Harvey - Main Coder</li>
+          <li>Marvector - Designer</li>
+          <li>Procionnn - Coder</li>
+          <li>UwU_platok_WuW - Coder</li>
+        </ul>
+      </div>
+      <div class="footerlineinfo">
+        <p>Exploration Hub is a cute lil' project by Harvey and his friends. <br> <strong>2025</strong></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
