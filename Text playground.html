@@ -293,171 +293,56 @@
                                                   | https://i.imgur.com/HmiQjEY.png - Clouds
     */
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body, html { height:100%; font-family:'Inter',sans-serif; background: #eaac8b; color:#ffffff; text-align:center; overflow-x:hidden; position:relative; }
-    .infinite-line { position:fixed; left:0; width:200%; height:4px; background:linear-gradient(to right,#ffa0a0 50%,#00000000 50%); background-size:40px 4px; z-index:3; }
-    .infinite-line.left { top:0; animation:moveLineLeft 2s linear infinite; }
-    .infinite-line.right { bottom:0; animation:moveLineRight 2s linear infinite; }
-    header { position:relative; z-index:2; background:#000000; padding:1rem 0rem; }
-    #welcometext {position:relative; z-index:2; background:#0000004d; padding:1rem 0rem; }
-    .titlebar { display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:auto; }
-    .titlebar h1 { color:#ffa0a0; font-weight:600; }
-    .titleend,.titlebarsocials p { margin:0.2rem 0; }
-    .titlebarsocials a { color:#ffffff; text-decoration:none; }
-    .titleend {display:flex; justify-content:center; align-items:center; margin: 0 10em; border-radius: 0, 0, 10px, 10px; flex-direction: column;}
-    .titleenditems {justify-content: space-between;}
-    main { max-width:1000px; margin:2rem auto; padding:2rem; background:#00000066; border-radius:20px; box-shadow:0 8px 24px #00000080; position:relative; z-index:1; }
-    section { margin-bottom:3rem; padding:2rem; background:#ffffff0d; border-radius:16px; box-shadow:0 6px 16px #00000066; }
-    h2 { color:#ffa0a0; margin-bottom:1rem; }
-    p { line-height:1.6; }
-    footer { width:100%; padding:1rem 0; background:#000000; position:relative; z-index:1; margin-top:2rem; animation:none; }
-    .footerline { max-width:1000px; margin:auto; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; }
-    .footerlinecredits, .footerlineinfo { margin:1rem; text-align:left; }
-    .footerlinecredits h3 { margin-bottom:0.5rem; color:#ffa0a0; }
-    .footerlinecredits ul { list-style:none; padding:0; }
-    .footerlinecredits li::before { content:'\1F338'; margin-right:8px; }
-    .footerlineinfo p { max-width:300px; }
-    .footerlineimg { max-width:100px; }
-    main, section:not(#welcometext) { animation:fadeInUp 1.5s ease forwards; }
-    section:not(#welcometext):hover { transform:translateY(-5px); box-shadow:0 12px 30px #000000b3; transition:all 0.3s ease; }
-    @media(max-width:600px) {
-    .titlebar { flex-direction:column; }
-    .infinite-line { display:none; }
-    section { padding:1rem; } }
-    #welcometext { width:100vw; margin:0; box-shadow:none; animation:none; border-radius:0; background: #00000066; background-size: cover;}
-    .post-form { display:none; margin-top:0.5rem; background:#000000b3; padding:1rem; border-radius:10px; justify-content:center; min-width:75vw; flex-direction: column; align-items: center;}
-    .post-form textarea, #postName, #postDate, #postHeading { width:80%; padding:0.5rem; margin-bottom:0; background:#17171b; color:#ffffff; border:1px solid #ffa0a0; border-radius:6px; }
-    .button { padding:0.5rem 1rem; border:none; background:#ffa0a0; color:#17171b; border-radius:6px; cursor:pointer; }
-    .mainpopup {  display: none;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; background: rgba(0,0,0,0.4);  justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
-    .mainpopup.show {  display: flex;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; background: rgba(0,0,0,0.4);  justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
-    .mainpopup.hide {animation: popupOut 0.3s ease forwards;}
-    .popup {  display: none;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
-    .popup.show { display: flex; opacity: 1; top:0; left:0; width:100%; height:100%; justify-content:center; align-items:center; z-index:5; backdrop-filter: blur(8px);  animation: popupIn 0.4s ease forwards;}
-    .popup.hide {animation: popupOut 0.3s ease forwards;}
-    .popup-content { display:flex; background:#222222; padding:2rem; border-radius:12px; max-width:90%; text-align:center; align-items:center; flex-direction:column;}
-    .popup-content button { margin-top:1rem; background:#ffa0a0; color:#17171b; border:none; padding:0.5rem 1rem; border-radius:6px; cursor:pointer; }
-    #postList { list-style: none; padding: 0; margin: 2rem 0; position: relative; }
-    #postList li { margin: 0.5rem 0; background: #00000080; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;width: fit-content; transition: all 0.3s; transform: translateX(0); }
-    #particles-js {  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;background: linear-gradient(175deg, #9ccfdf 0%, #eaac8b 50%, #ecbaa1 55%, #eaac8b 60%, #e56b6f 70%, #b56576 80%, #6d597a 90%, #355070 100%);}
-    #postListPopup .popup-content { background:#222222; padding:2rem; border-radius:12px; max-width:90%; text-align:left; color:#ffffff; }
-    #postListPopup ul { list-style:none; padding:0; max-height:300px; overflow-y:auto; }
-    #postListPopup ul li { margin:0.5rem 0; }
+    :root {
+      --baseurlparalax1: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal");
+    }
+    
 
     #background { position:fixed; top:0; left:0; width:100%; height:100%; z-index:1; }
     #parallax-layer { position:fixed; top:0; left:0; width:100%; height:100%; z-index:1; }
     .parallax-img { position:absolute; top:0; left:0; width:100%; height:100%; background-size:cover; }
-    #parallax-1 { background-image:url('https://i.imgur.com/Rbzbf05.png'); }
-    #parallax-2 { background-image:url('https://i.imgur.com/BiCK3hl.png'); }
-    #parallax-3 { background-image:url('https://i.imgur.com/gI78Iv4.png'); }
-    #parallax-4 { background-image:url('https://i.imgur.com/u0jXsnY.png'); }
-    #parallax-5 { background-image:url('https://i.imgur.com/fqTTtyt.png'); }
-    #parallax-6 { background-image:url('https://i.imgur.com/iAEpovB.png'); }
-    #parallax-7 { background-image:url('https://i.imgur.com/EuVlZYr.png'); }
-    #parallax-c { background-image:url('https://i.imgur.com/HmiQjEY.png'); }
+    #parallax-1 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer1.png?raw=true"); }
+    #parallax-2 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer2.png?raw=true"); }
+    #parallax-3 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer3.png?raw=true"); }
+    #parallax-4 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer4.png?raw=true"); }
+    #parallax-5 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer5.png?raw=true"); }
+    #parallax-6 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer6.png?raw=true"); }
+    #parallax-7 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer7.png?raw=true"); }
+    #parallax-c { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layerC.png?raw=true"); }
+     
+    /*ANIMATIONS*/
 
-  /*ANIMATIONS*/
-
-    @keyframes popupIn {
-      0% { opacity: 0;  backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
-      100% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }}
-    @keyframes popupOut {
-      0% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-      100% { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }}
-    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
-    @keyframes moveLineLeft { from{background-position:0 0;} to{background-position:40px 0;} }
-    @keyframes moveLineRight { from{background-position:0 0;} to{background-position:-40px 0;} }
-  </style>
-</head>
-<body>
-  <div id="background">
+    </style>
+    </head>
+    <body>
+    <div id="background"></div>
     <div id="parallax-layer">
-      <div id="parallax-7" class="parallax-img parallax" data-speed="100"></div>
-      <div id="parallax-6" class="parallax-img parallax" data-speed="75"></div>
-      <div id="parallax-5" class="parallax-img parallax" data-speed="59"></div>
-      <div id="parallax-4" class="parallax-img parallax" data-speed="36"></div>
-      <div id="parallax-t" class="parallax-img parallax" data-speed="26"></div>
-      <div id="parallax-3" class="parallax-img parallax" data-speed="16"></div>
-      <div id="parallax-2" class="parallax-img parallax" data-speed="11"></div>
-      <div id="parallax-c" class="parallax-img parallax" data-speed="5"></div>
-      <div id="parallax-1" class="parallax-img parallax" data-speed="2"></div>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer7.png?raw=true"></a>
+      <img id="parallax-7" class="parallax-img parallax" data-speed="100" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer7.png?raw=true" alt="Layer 7">
+      </a>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer6.png?raw=true">
+      <img id="parallax-6" class="parallax-img parallax" data-speed="75" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer6.png?raw=true" alt="Layer 6">
+      </a>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer5.png?raw=true"></a>
+      <img id="parallax-5" class="parallax-img parallax" data-speed="59" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer5.png?raw=true" alt="Layer 5">
+      </a>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer4.png?raw=true">
+      <img id="parallax-4" class="parallax-img parallax" data-speed="36" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer4.png?raw=true" alt="Layer 4">
+      </a>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer3.png?raw=true">
+      <img id="parallax-3" class="parallax-img parallax" data-speed="16" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer3.png?raw=true" alt="Layer 3">
+      </a>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer2.png?raw=true">
+      <img id="parallax-2" class="parallax-img parallax" data-speed="11" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer2.png?raw=true" alt="Layer 2">
+      </a>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layerC.png?raw=true">
+      <img id="parallax-c" class="parallax-img parallax" data-speed="5" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layerC.png?raw=true" alt="Layer C">
+      </a>
+      <a href="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer1.png?raw=true">
+      <img id="parallax-1" class="parallax-img parallax" data-speed="2" src="https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer1.png?raw=true" alt="Layer 1">
+      </a></a>
     </div>
   </div>
- <!-- <div id="particles-js"></div> -->
-  <div class="infinite-line left"></div>
-  <div class="infinite-line right"></div>
 
-  <header>
-    <div class="titlebar">
-      <h1>Just a simple <strong>Canvas</strong></h1>
-      <div class="titlebarsocials">
-        <p><a href="https://t.me/HarveyTheFoxik"><i class="fa-brands fa-telegram"></i> Harvey Rousseau</a></p>
-        <p><a href="https://t.me/marvector"><i class="fa-brands fa-telegram"></i> Marvector</a></p>
-        <p><a href="https://t.me/Procionnn"><i class="fa-brands fa-telegram"></i> Procionnnn</a></p>
-        <p><a href="https://t.me/dsfghiuojhyhljh"><i class="fa-brands fa-telegram"></i> UwU_platok_WuW</a></p>
-      </div>
-    </div>
-  </header>
-  <section id="welcometext">
-    <h2>Welcome!</h2>
-    <p>Hewwo everyone, sooooooo this site is something like a news channel... Me and my friends gonna add cool stuff here. It's gonna be interesting...</p>
-  </section>
-  <header>
-    <div class="titleend">
-      <div class="titleendposts">
-        <div class="titleenditems">
-          <div class="titleendbuttons">
-            <button id="openPostForm" class="button">Add Post</button>
-            <button id="openPostList" class="button">Post List</button>
-          </div>
-          <div class="titleendtext">
-
-          </div>
-        </div>
-        <div id="postForm" class="post-form">
-          <input id="postHeading" type="text" placeholder="Name it..."><br>
-          <input id="postName" type="text" placeholder="Your name..."><br>
-          <input id="postDate" type="date" placeholder="Date (YYYY-MM-DD)..."><br>
-          <textarea id="postContent" rows="3" placeholder="One word goes after another... Write something"></textarea><br>
-          <button id="submitPost" class="button">Submit</button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-  </main>
-  <div id="Posts" class="mainpopup">
-    <div id="postPopup" class="popup">
-      <div id="postContent" class="popup-content">
-        <div id="popupText"></div>
-        <button id="closePopup" class="button">Back...</button>
-      </div>
-    </div>
-    <div id="postListPopup" class="popup">
-    <div id="postListContent" class="popup-content">
-      <h2>This Is Posts by people:</h2>
-      <div>
-         <ul id="postList"></ul>
-      </div>
-     <button id="closePopupList" class="button">Close</button>
-    </div>
-  </div>
-  </div>
-  <footer>
-    <div class="footerline">
-      <div class="footerlinecredits">
-        <h3>Credits</h3>
-        <ul>
-          <li>Harvey - Main Coder</li>
-          <li>Marvector - Designer</li>
-          <li>Procionnn - Coder</li>
-          <li>UwU_platok_WuW - Coder</li>
-        </ul>
-      </div>
-      <div class="footerlineinfo">
-        <p>Exploration Hub is a cute lil' project by Harvey and his friends. <br> <strong>2025</strong></p>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
