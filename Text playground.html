@@ -44,10 +44,11 @@
 </head>
 <body>
   <div id="parallax-layer">
-    <div id="parallax-1" class="parallax-img parallax" data-speed="10"></div>
-    <div id="parallax-2" class="parallax-img parallax" data-speed="20"></div>
-    <div id="parallax-3" class="parallax-img parallax" data-speed="30"></div>
+    <div id="parallax-1" class="parallax-img parallax" data-speed="50"></div>
+    <div id="parallax-2" class="parallax-img parallax" data-speed="25"></div>
+    <div id="parallax-3" class="parallax-img parallax" data-speed="0"></div>
   </div>
+  <h1 style="background-color: #fff;">Exploration Hub</h1>
 
   <script>
     window.addEventListener('scroll', () => {
@@ -55,7 +56,7 @@
 
       document.querySelectorAll('.parallax').forEach(layer => {
         const speed = layer.getAttribute('data-speed');
-        layer.style.transform = `translateY(-${scrollTop * speed / 100}px)`;
+        layer.style.transform = `translateY(${scrollTop * speed / 100}px)`;
       });
     });
   </script>
