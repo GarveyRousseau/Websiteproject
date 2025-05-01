@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
 
-  <!--
+        TODO LIST
 
-  TODO LIST                             | СПИСОК ЗАДАЧ
-      1.                                |    1.
-        1.1.                            |        1.1. 
-        1.2.                            |        1.2.
-      2. BETTER POPUPS AND POSTLIST     |    2. УЛУЧШЕНЫЕ ОКНА И СПИСОК ПОСТОВ
-        2.1. BG                         |        2.1. ФОН
-      3. REDO THE DESIGN                |    3. ПЕРЕДЕЛАТЬ ДИЗАЙН
-        3.1. COLOURS                    |        3.1. ЦВЕТА
-        3.2. BLUR                       |        3.2. БЛЮР
-        3.3. ANIMATIONS                 |        3.3. АНИМАЦИИ
+        1. Add new features (Добавить новые функции)
+        2. Fix bugs (Исправить ошибки)
+        3. Improve UI (Улучшить интерфейс)
+        4. ...
 
-  -->
-
+-->
 <head>
-  <!-- SRC SCRIPTS | СКРИПТЫ - ССЫЛКИ -->
-    <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script>   <!-- Icons | Иконки -->
-  <!-- WRITTEN SCRIPTS | НАПИСАННЫЕ СКРИПТЫ -->
+  <!-- SRC Scripts (Скрипты - Ссылки) -->
+    <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script>   <!-- Icons (Иконки) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery Library -->
+  <!-- Written Scripts (Написанные Скрипты) -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     // DOM Manipulation (Post Form, List, and Popup Handling)
@@ -136,26 +131,26 @@
       layer.style.transform = `translate3d(0, ${scrollTop * speed / 120}px, 0)`;
     });
 
-    // Shrink the text in parallax-t when scrolling
+    // Shrink the text in parallax-t when scrolling (Сжатие во время прокрутки)
     const parallaxTextH1 = document.querySelector('#parallax-t h1');
     const parallaxTextH2 = document.querySelector('#parallax-t h2');
     if (parallaxTextH1) {
-      const scaleH1 = Math.max(1 - scrollTop / 1000, 0.5); // Shrink to a minimum of 50%
+      const scaleH1 = Math.max(1 - scrollTop / 1000, 0.5); // Shrink to a minimum of 50% (Сжатие до минимума 50%)
       parallaxTextH1.style.transform = `scale(${scaleH1})`;
     }
     if (parallaxTextH2) {
-      const scaleH2 = Math.max(1 - scrollTop / 1000, 0.5); // Shrink to a minimum of 50%
+      const scaleH2 = Math.max(1 - scrollTop / 1000, 0.5); // Shrink to a minimum of 50% (Сжатие до минимума 50%)
       parallaxTextH2.style.transform = `scale(${scaleH2})`;
     }
     });
-  </script> <!-- Paralax bg | Фон-Паралакс -->
+  </script> <!-- Paralax bg (Фон - Параллакс) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harvey & Friends | Exploration Hub</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
   <style>
 
-/*    COLOR TAGS | ЦВЕТА
+/*    COLOR TAGS (Цвета) [ПОД УДАЛЕНИЕ]
 
         #00d4ff – Electric Cyan – used in infinite lines + section titles (h2)
         #00000000 – Fully Transparent Black – part of infinite line background
@@ -288,7 +283,7 @@
     #parallax-t h1 { font-size: 4em; text-align: center; }
     #parallax-t h2 { font-size: 2em; text-align: center; }
 
-    /* ANIMATIONS */
+    /* Animations */
     @keyframes popupIn {
       0% { opacity: 0;  backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
       100% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }}
@@ -302,16 +297,16 @@
     </style>
   </head>
   <body>
-    <!-- Short title -->
+    <!-- Short title (Короткий титуль) -->
     <section class="short-title">
       <h2>Short Title Here</h2>
     </section>
-    <!-- Parallax background -->
+    <!-- Parallax background (Фон)  -->
     <div id="parallax-background">
       <div id="parallax-1" class="parallax-img parallax" data-speed="160"></div>
       <div id="parallax-2" class="parallax-img parallax" data-speed="125"></div>
       <div id="parallax-3" class="parallax-img parallax" data-speed="105"></div>
-      <div id="parallax-t" class="parallax-img parallax" data-speed="140"><h1>Exploration Hub</h1><br><h2>"Its easy" they said...</h2></div>
+      <div id="parallax-t" class="parallax-img parallax" data-speed="140"><h1>Exploration Hub</h1><br><h2>"It's easy" they said...</h2></div>
       <div id="parallax-4" class="parallax-img parallax" data-speed="85"></div>
       <div id="parallax-5" class="parallax-img parallax" data-speed="65"></div>
       <div id="parallax-6" class="parallax-img parallax" data-speed="60"></div>
@@ -319,7 +314,7 @@
       <div id="parallax-8" class="parallax-img parallax" data-speed="30"></div>
       <div id="parallax-9" class="parallax-img"></div>
     </div>
-    <!-- Title and welcome message -->
+    <!-- Title and welcome message (Заголовок и приветственное сообщение) -->
     <header>
       <div class="titlebar">
         <h1>Just a simple <strong>Canvas</strong></h1>
@@ -356,10 +351,10 @@
       </div>
     </div>-->
   </header>
-  <!-- Main content -->
+  <!-- Main content (Основной контент) -->
   <main>
   </main>
-  <!-- Popups -->
+  <!-- Popups (Всплывающие окна)  -->
   <div id="Posts" class="mainpopup">
     <div id="postPopup" class="popup">
       <div id="postContent" class="popup-content">
@@ -377,7 +372,7 @@
       </div>
     </div>
   </div>
-  <!-- Footer and credits-->
+  <!-- Footer and credits (Футер и кредиты) -->  
   <footer>
     <div class="footerline">
       <div class="footerlinecredits">
