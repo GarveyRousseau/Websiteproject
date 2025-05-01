@@ -5,60 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Parallax Scroll</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    html, body {
-      height: 200vh; /* allow scroll */
-      overflow-x: hidden;
-      background: #111;
-    }
-
-    #parallax-layer {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .parallax-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      will-change: transform;
-    }
-
-    /* Example layers (you can replace these with your GitHub links) */
-    #parallax-1 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer1.png?raw=true"); }
-    #parallax-2 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer2.png?raw=true"); }
-    #parallax-3 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer3.png?raw=true"); }
-  
   </style>
 </head>
 <body>
-  <div id="parallax-layer">
-    <div id="parallax-1" class="parallax-img parallax" data-speed="50"></div>
-    <div id="parallax-2" class="parallax-img parallax" data-speed="25"></div>
-    <div id="parallax-3" class="parallax-img parallax" data-speed="0"></div>
-  </div>
-  <h1 style="background-color: #fff;">Exploration Hub</h1>
 
-  <script>
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-
-      document.querySelectorAll('.parallax').forEach(layer => {
-        const speed = layer.getAttribute('data-speed');
-        layer.style.transform = `translateY(${scrollTop * speed / 100}px)`;
-      });
-    });
-  </script>
 </body>
 </html>

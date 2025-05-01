@@ -19,7 +19,6 @@
 <head>
   <!-- SRC SCRIPTS | СКРИПТЫ - ССЫЛКИ -->
     <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script>   <!-- Icons | Иконки -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>   <!-- Particles.js lib | Библиотека партиклов -->
   <!-- WRITTEN SCRIPTS | НАПИСАННЫЕ СКРИПТЫ -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -121,122 +120,15 @@
       popupEl.addEventListener("animationend", onAnimEnd, { once: true });
       postDiv.addEventListener("animationend", onAnimEnd, { once: true });
     }
-
-    // Particles.js Configuration
-    particlesJS('particles-js', {
-      "particles": {
-        "number": {
-          "value": 71,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#000000"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 6
-          },
-          "image": {
-            "src": "img/github.svg",
-            "width": 100,
-            "height": 100
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 4,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 173,
-          "color": "#000000",
-          "opacity": 0.4,
-          "width": 2
-        },
-        "move": {
-          "enable": true,
-          "speed": 3,
-          "direction": "bottom-right",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 2295,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 152,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  });
-  </script>
-<script>
-  window.addEventListener('scroll', () => {
+    function openPopup(content) {
+      popupText.innerHTML = content;
+      postPopup.classList.add('show');
+      listPopup.classList.remove('show');
+    }
+  }); 
+  </script> 
+  <script>
+    window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
 
     document.querySelectorAll('.parallax').forEach(layer => {
@@ -250,8 +142,8 @@
       const scale = Math.max(1 - scrollTop / 2000, 0.5); // Shrink to a minimum of 50%
       parallaxText.style.transform = `scale(${scale})`;
     }
-  });
-</script> <!-- Paralax bg | Фон-Паралакс -->
+    });
+  </script> <!-- Paralax bg | Фон-Паралакс -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harvey & Friends | Exploration Hub</title>
@@ -297,13 +189,15 @@
 
     :root{
 
-      --background-1: #ff9d57;
-      --background-2: #ff8229;
-      --background-3: #fa6800;
-      --background-4: #cc5500;
-      --background-5: #9e4200;
-      --background-6: #702f00;
-      --background-7: #421c00; 
+      --bgcolor-1: #FF8C00;
+      --bgcolor-2: #F06E00;
+      --bgcolor-3: #D74B00;
+      --bgcolor-4: #BE2800;
+      --bgcolor-5: #A00A00;
+      --bgcolor-6: #820500;
+      --bgcolor-7: #640000;
+      --bgcolor-8: #460000;
+      --bgcolor-9: #300000; 
 
          }
     * {margin:0; padding:0; box-sizing:border-box; }
@@ -355,14 +249,16 @@
     #postListPopup .popup-content { background:#222222; padding:2rem; border-radius:12px; max-width:90%; text-align:left; color:#ffffff; }
     #postListPopup ul { list-style:none; padding:0; max-height:300px; overflow-y:auto; }
     #postListPopup ul li { margin:0.5rem 0; } */
-    .short-title { background-color: var(--background-7); padding: 0.5rem; }
+
+    html, body {font-family:'Inter',sans-serif; background-color: var();}
+    .short-title { background-color: var(--bgcolor-9); padding: 0.5rem; }
     .short-title h2 { color: #ffffff; }
-    .titlebar { position: relative; top: 0; background-color: var(--background-7);}
+    .titlebar { position: relative; top: 0; background-color: var(--bgcolor-9); }
     
     /* Parallax BG */
 
-    #parallax-layer { position: relative; width: 100%; height: 100vh; overflow: hidden; }
-    .parallax-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; will-change: transform; }
+    #parallax-layer { position: relative; width: 100%; height: 100vh; overflow: hidden; display: flex; align-items: center;}
+    .parallax-img { display: flex; align-items: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; will-change: transform; }
     
     /* Paralax Layers */
 
@@ -374,8 +270,8 @@
     #parallax-6 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer6.png?raw=true"); }
     #parallax-7 { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layer7.png?raw=true"); }
     #parallax-c { background-image: url("https://github.com/GarveyRousseau/Websiteproject/blob/main/Bg%20layers/Horisontal/layerC.png?raw=true"); }
-    #parallax-t { display: flex; justify-content: center; align-items: center; text-align: center; height: 100%;}
-    #parallax-t h1{ font-size: 4em;}
+    #parallax-t { display: flex; top: -10vh; align-items: center; text-align: center; height: 100%; }
+    #parallax-t h1{ font-size: 4em; text-align: center; }
 
     /*ANIMATIONS*/
 
@@ -402,11 +298,13 @@
       <div id="parallax-c" class="parallax-img parallax" data-speed="90"></div>
       <div id="parallax-2" class="parallax-img parallax" data-speed="80"></div>
       <div id="parallax-3" class="parallax-img parallax" data-speed="65"></div>
-      <div id="parallax-t" class="parallax-img parallax" data-speed="70"><h1>Exploration Hub</h1></div>
+      <div id="parallax-t" class="parallax-img parallax" data-speed="130"><h1>Exploration Hub</h1></div>
       <div id="parallax-4" class="parallax-img parallax" data-speed="50"></div>
       <div id="parallax-5" class="parallax-img parallax" data-speed="35"></div>
       <div id="parallax-6" class="parallax-img parallax" data-speed="20"></div>
-      <div id="parallax-7" class="parallax-img"></div>
+      <div id="parallax-7" class="parallax-img parallax" data-speed="20"></div>
+      <div id="parallax-8" class="parallax-img parallax" data-speed="20"></div>
+      <div id="parallax-9" class="parallax-img"></div>
     </div>
 
  <!-- <div id="particles-js"></div> -->
