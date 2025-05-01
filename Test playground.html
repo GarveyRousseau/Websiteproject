@@ -30,20 +30,30 @@
 
   <title>Test playground</title>
   <style>
-
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f0f0f0;
     }
+    .Title {
+      display: flex;
+      flex-direction: column; /* Added flex-direction for vertical stacking */
+      justify-content: center; 
+      align-items: center; /* Added align-items for vertical alignment */
+    }
     .Title h1 {
       text-align: center;
       color: #333;
       font-size: 2.5em; /* Adding font size for better visibility */
       margin-bottom: 20px; /* Adding margin for spacing below the title */
-
-      
+      display: flex; 
+      padding: 20px; /* Adding padding for better spacing around the title */
+      align-items: center; /* Centering items vertically within the title */
+      margin: 15px; /* Adjusted margin for better spacing */
+      justify-content: center; /* Centering items horizontally within the title */
+      border-bottom: 5px solid #ff9178; /* Added solid border-bottom for better visibility */
+      min-width: 70%; /* Set a minimum width for the title */
     }
     .Title p {
       text-align: center; /* Center-aligning paragraph text for consistency */
@@ -71,7 +81,8 @@
       max-width: 700px; /* Ensuring max-width is set for better layout */
       margin: 20px auto; /* Centering the container horizontally */
       padding: 10px; /* Adding padding for better spacing */
-      border-left: 5px solid #FF5733; /* Adding border-left with solid style */
+      border-left: 5px solid #ff9178; /* Adding border-left with solid style */
+      box-shadow: 5px 4px 0 #666; /* Adding shadow for depth */
     } 
     .message-for-developers p {
       margin: 0; /* Removing default margin for paragraphs in developer messages */
@@ -82,22 +93,28 @@
       background: repeating-linear-gradient(90deg, #666, #666 20px, transparent 20px, transparent 25px); /* Creating a sharp dotted line effect with empty parts */
       margin: 30px 0; /* Adjusting margin for spacing around the divider */
     }
-    .colored {
-      color: #FF5733; /* Adding color for highlighted text */
-    }
+    .colored-R { color: #ff9178; /* Adding a new color for the colored-R class */ }
+    .colored-G { color: #6eff6e; /* Adding a new color for the colored-G class */ }
+    .colored-B { color: #7dc2ff; /* Adding a new color for the colored-B class */ }
+    .colored-Y { color: #ffde59; /* Adding a new color for the colored-Y class */ }
+    .colored-P { color: #ff74a2; /* Adding a new color for the colored-P class */ }
+    .colored-O { color: #ffb964; /* Adding a new color for the colored-O class */ }
+  
+          /* ADD YOUR CSS HERE \/ */
+            
   </style>
 </head>
 <body>
   <div class="Title">
-    <h1><b class="colored">Welcome to the Test Playground</b></h1>
+      <h1><b class="colored-R">Welcome to the Test Playground</b></h1>
     <p>This is a simple test page to explore HTML structure and styling. <br> Feel free to modify and test your code here!</p>
     <div class="message-for-developers">
-      <p>Dear developers - <b class="colored">clean</b> the code for future testers or/and <b class="colored">if your part is still in work</b></p>
-      <p>Remember to <b class="colored">comment</b> your changes for better collaboration.</p>
-      <p>If you encounter any issues, please <b class="colored">report them to the team.</b></p>
-      <p>Thank you for your <b class="colored">contributions!</b></p>
+      <p>Dear developers - <b class="colored-R">clean</b> the code for future testers or/and <b class="colored-R">if your part is still in work</b></p>
+      <p>Remember to <b class="colored-R">comment</b> your changes for better collaboration.</p>
+      <p>If you encounter any issues, please <b class="colored-R">report them to the team.</b></p>
+      <p>Thank you for your <b class="colored-R">contributions!</b></p>
     </div>
-    <p>Add and edit your code after <b>that line</b> \/</p>
+    <p>Add and edit your code after <b class="colored-R">that line</b> \/</p>
   </div> 
   <div class="divider"></div>
 
