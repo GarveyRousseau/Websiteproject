@@ -206,13 +206,9 @@
     .infinite-line.left { top:0; animation:moveLineLeft 2s linear infinite; }
     .infinite-line.right { bottom:0; animation:moveLineRight 2s linear infinite; }
     header { position:relative; z-index:2; background:#000000; padding:1rem 0rem; }
-    #welcometext {position:relative; z-index:2; background:#0000004d; padding:1rem 0rem; }
+    
     .titlebar { display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:auto; }
-    .titlebar h1 { color:#ffa0a0; font-weight:600; }
-    .titleend,.titlebarsocials p { margin:0.2rem 0; }
-    .titlebarsocials a { color:#ffffff; text-decoration:none; }
-    .titleend {display:flex; justify-content:center; align-items:center; margin: 0 10em; border-radius: 0 0 10px 10px; flex-direction: column;}
-    .titleenditems {justify-content: space-between;}
+    
     main { max-width:1000px; margin:2rem auto; padding:2rem; background:#00000066; border-radius:20px; box-shadow:0 8px 24px #00000080; position:relative; z-index:1; }
     section { margin-bottom:3rem; padding:2rem; background:#ffffff0d; border-radius:16px; box-shadow:0 6px 16px #00000066; }
 
@@ -243,92 +239,109 @@
     #postListPopup ul li { margin:0.5rem 0; } */
     
     /* basic css*/
-    html, body {font-family:'Inter',sans-serif; background-color: var( --bgcolor-1);}
-  
+      html, body {font-family:'Inter',sans-serif; background-color: var( --bgcolor-9);}
+      .pretitle {background-color: var(--bgcolor-1);}
+      .moveleftinf { animation: movetotheleftinf 10s linear infinite;}
+      .moverightinf { animation: movetotherightinf 10s linear infinite;}
+
     /* basic text colors */
-    html h1 {color: var(--bgcolor-5);}
-    html h2 {color: var(--bgcolor-5);}
-    html h3 {color: var(--bgcolor-3);}
-    html h4 {color: var(--bgcolor-3);}
-    html p  {color: var(--bgcolor-1);}  
-    html a  {color: var(--bgcolor-1);}  
+      html h1 {color: var(--bgcolor-5);}
+      html h2 {color: var(--bgcolor-5);}
+      html h3 {color: var(--bgcolor-3);}
+      html h4 {color: var(--bgcolor-3);}
+      html p  {color: var(--bgcolor-1);}  
+      html a  {color: var(--bgcolor-1);} 
     
+    /* hard css */
+      /* short title */   
+      .short-title { background-color: var(--bgcolor-9); padding: 0.5rem; border-radius: 0 0 0.5em 0.5em; position: fixed; min-width: 100%; z-index: 1;}
 
-    .short-title { background-color: var(--bgcolor-9); padding: 0.5rem; border-radius: 0 0 0.5em 0.5em;}
-    .titlebar { position: relative; top: 0; background-color: var(--bgcolor-9); }
-    .footerline { display: flex; background-color: var(--b); color: var(--bgcolor-1); justify-content: space-between; align-items:flex-end; flex-wrap:wrap;}
-    .footerlinecredits { margin:1rem; text-align: left; }
-    .footerlineinfo { margin:1rem; text-align: right; }
-    .footerlinecredits h3 { margin-bottom:0.5rem; color:var(--bgcolor-3) }
-    .footerlinecredits ul { list-style:none; padding:0; }
-    .footerlinecredits li::before { content:'\1F338'; margin-right:8px; }
-    .footerlineinfo p { max-width:300px; }
+      /* title */
+      .titlebar { position: relative; top: 0; background-color: var(--bgcolor-9); display: flex; justify-content: center; align-items: center; padding: 0 15px; }
+
+      #welcometext {position:relative; z-index:2; background-color: var(--bgcolor-9); padding:4em 0rem 0 0; justify-content: center; align-items: center; text-align: center;}
+      #welcometext p {max-width: 1000px; margin: auto; }
+      /* Footer */
+      #footerline { display: flex; background-color: var(--b); color: var(--bgcolor-1); justify-content: space-between; align-items:flex-end; flex-wrap:wrap;}
+      #footerlineinfo { margin:1rem; text-align: right; }
+      #footerlineinfo p { max-width:300px; }
+      #footerlinecredits { margin:1rem; text-align: left; }
+      #footerlinecredits h3 { margin-bottom:0.5rem; color:var(--bgcolor-3) }
+      #footerlinecredits ul { list-style:none; padding:0; }
+      #footerlinecredits li::before { content:'\1F338'; margin-right:8px; }
     
-    /* Parallax BG */
-    #parallax-background { position: relative; width: 100%; height: 100vh; overflow: hidden; display: flex; align-items: center;}
-    .parallax-img { display: flex; align-items: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; will-change: transform; }
+    /* Service items */
+      /* Parallax BG */
+      #parallax-background { position: relative; width: 100%; height: 100vh; overflow: hidden; display: flex; align-items: center;}
+      .parallax-img { display: flex; align-items: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; will-change: transform; }
+      
+      /* Parallax Layers */
+      #parallax-1 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer1-new.png"); }
+      #parallax-2 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer2-new.png"); }
+      #parallax-3 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer3-new.png"); }
+      #parallax-4 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer4-new.png"); }
+      #parallax-5 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer5-new.png"); }
+      #parallax-6 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer6-new.png"); }
+      #parallax-7 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer7-new.png"); }
+      #parallax-8 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer8-new.png"); }
+      #parallax-9 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer9-new.png"); }
+
+      #parallax-t { display: flex; top: -20vh; align-items: center; justify-content: center; text-align: center; height: 100%; flex-direction: column;}
+      #parallax-t h1 { font-size: 4em; text-align: center; }
+      #parallax-t h2 { font-size: 2em; text-align: center; }
     
-    /* Parallax Layers */
-    #parallax-1 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer1-new.png"); }
-    #parallax-2 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer2-new.png"); }
-    #parallax-3 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer3-new.png"); }
-    #parallax-4 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer4-new.png"); }
-    #parallax-5 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer5-new.png"); }
-    #parallax-6 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer6-new.png"); }
-    #parallax-7 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer7-new.png"); }
-    #parallax-8 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer8-new.png"); }
-    #parallax-9 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer9-new.png"); }
-
-    #parallax-t { display: flex; top: -20vh; align-items: center; justify-content: center; text-align: center; height: 100%; flex-direction: column;}
-    #parallax-t h1 { font-size: 4em; text-align: center; }
-    #parallax-t h2 { font-size: 2em; text-align: center; }
-
-    /* Animations */
-    @keyframes popupIn {
-      0% { opacity: 0;  backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
-      100% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }}
-    @keyframes popupOut {
-      0% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-      100% { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }}
-    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
-    @keyframes moveLineLeft { from{background-position:0 0;} to{background-position:40px 0;} }
-    @keyframes moveLineRight { from{background-position:0 0;} to{background-position:-40px 0;} }
-
+      /* Animations */
+      @keyframes popupIn {
+        0% { opacity: 0;  backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
+        100% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }}
+      @keyframes popupOut {
+        0% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        100% { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }}
+      @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+      @keyframes movetotheleftinf { from{background-position:0 0;} to{background-position:100px 0;} }
+      @keyframes movetotherightinf { from{background-position:0 0;} to{background-position:-100px 0;} }
+      
+      /* Dividers */
+      .divider-main { height: 5px; background: repeating-linear-gradient(90deg, var(--bgcolor-1), var(--bgcolor-1) 20px, transparent 20px, transparent 25px); margin: 30px 0; }
+      .divider-small { height: 2px; background: var(--bgcolor-1); margin: 5px; }
     </style>
   </head>
   <body>
-    <!-- Short title (Короткий титуль) -->
-    <section class="short-title">
-      <h2>Short Title Here</h2>
-    </section>
-    <!-- Parallax background (Фон)  -->
-    <div id="parallax-background">
-      <div id="parallax-1" class="parallax-img parallax" data-speed="160"></div>
-      <div id="parallax-2" class="parallax-img parallax" data-speed="125"></div>
-      <div id="parallax-3" class="parallax-img parallax" data-speed="105"></div>
-      <div id="parallax-t" class="parallax-img parallax" data-speed="140"><h1>Exploration Hub</h1><br><h2>"It's easy" they said...</h2></div>
-      <div id="parallax-4" class="parallax-img parallax" data-speed="85"></div>
-      <div id="parallax-5" class="parallax-img parallax" data-speed="65"></div>
-      <div id="parallax-6" class="parallax-img parallax" data-speed="60"></div>
-      <div id="parallax-7" class="parallax-img parallax" data-speed="38"></div>
-      <div id="parallax-8" class="parallax-img parallax" data-speed="30"></div>
-      <div id="parallax-9" class="parallax-img"></div>
+    <div class="pretitle">
+      <!-- Short title (Короткий титуль) -->
+      <section class="short-title">
+        <h2>Short Title Here</h2>
+      </section>
+      <!-- Parallax background (Фон)  -->
+      <div id="parallax-background">
+        <div id="parallax-1" class="parallax-img parallax" data-speed="160"></div>
+        <div id="parallax-2" class="parallax-img parallax" data-speed="125"></div>
+        <div id="parallax-3" class="parallax-img parallax" data-speed="105"></div>
+        <div id="parallax-t" class="parallax-img parallax" data-speed="140"><h1>Exploration Hub</h1><br><h2>"It's easy" they said...</h2></div>
+        <div id="parallax-4" class="parallax-img parallax" data-speed="85"></div>
+        <div id="parallax-5" class="parallax-img parallax" data-speed="65"></div>
+        <div id="parallax-6" class="parallax-img parallax" data-speed="60"></div>
+        <div id="parallax-7" class="parallax-img parallax" data-speed="38"></div>
+        <div id="parallax-8" class="parallax-img parallax" data-speed="30"></div>
+        <div id="parallax-9" class="parallax-img"></div>
+      </div>
     </div>
     <!-- Title and welcome message (Заголовок и приветственное сообщение) -->
     <header>
       <div class="titlebar">
         <h1>Just a simple <strong>Canvas</strong></h1>
-        <div class="titlebarsocials">
+        <!--<div class="titlebarsocials">
         <p><a href="https://t.me/HarveyTheFoxik"><i class="fa-brands fa-telegram"></i> Harvey Rousseau</a></p>
         <p><a href="https://t.me/marvector"><i class="fa-brands fa-telegram"></i> Marvector</a></p>
         <p><a href="https://t.me/Procionnn"><i class="fa-brands fa-telegram"></i> Procionnnn</a></p>
         <p><a href="https://t.me/dsfghiuojhyhljh"><i class="fa-brands fa-telegram"></i> UwU_platok_WuW</a></p>
-        </div>
+        </div>-->
       </div>
     <section id="welcometext">
       <h2>Welcome!</h2>
-      <p>Hewwo everyone, sooooooo this site is something like a news channel... Me and my friends gonna add cool stuff here. It's gonna be interesting...</p>
+      <p>Hewwo everyone, sooooooo this site is something like a news channel... Me and my friends gonna add cool stuff here.<br> It's gonna be interesting...</p>
     </section>
+    <div class="divider-main moveleftinf"></div>
     <!--
      <div class="titleend"></div>
        <div class="titleendposts"></div>
@@ -353,9 +366,12 @@
   </header>
   <!-- Main content (Основной контент) -->
   <main>
+    <div id="aboutme">
+
+    </div>
   </main>
   <!-- Popups (Всплывающие окна)  -->
-  <div id="Posts" class="mainpopup">
+  <!--<div id="Posts" class="mainpopup">
     <div id="postPopup" class="popup">
       <div id="postContent" class="popup-content">
         <div id="popupText"></div>
@@ -371,21 +387,22 @@
         <button id="closePopupList" class="button">Close</button>
       </div>
     </div>
-  </div>
+  </div>-->
   <!-- Footer and credits (Футер и кредиты) -->  
   <footer>
-    <div class="footerline">
-      <div class="footerlinecredits">
+    <div id="footerline">
+      <div id="footerlinecredits">
       <h3>Credits</h3>
         <ul>
           <li>Harvey - Main Coder</li>
           <li>Marvector - Designer</li>
-          <div class="divider"></div>
+          <div class="divider-small"></div>
           <li>Procionnn - Coder</li>
           <li>UwU_platok_WuW - Coder</li>
+          <div class="divider-small"></div>
         </ul>
       </div>
-      <div class="footerlineinfo">
+      <div id="footerlineinfo">
         <p>Exploration Hub is a cute lil' project by Harvey and his friends. <br> <strong>2025</strong></p>
       </div>
     </div>

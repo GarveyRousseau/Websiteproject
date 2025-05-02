@@ -35,6 +35,9 @@
       margin: 0;
       padding: 0;
       background-color: #f0f0f0;
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px), 
+                        linear-gradient(0deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px); /* Added square effect */
+      background-size: 20px 20px; /* Changed bg size */
     }
     .Title {
       display: flex;
@@ -105,18 +108,20 @@
   </style>
 </head>
 <body>
-  <div class="Title">
-      <h1><b class="colored-R">Welcome to the Test Playground</b></h1>
-    <p>This is a simple test page to explore HTML structure and styling. <br> Feel free to modify and test your code here!</p>
-    <div class="message-for-developers">
-      <p>Dear developers - <b class="colored-R">clean</b> the code for future testers or/and <b class="colored-R">if your part is still in work</b></p>
-      <p>Remember to <b class="colored-R">comment</b> your changes for better collaboration.</p>
-      <p>If you encounter any issues, please <b class="colored-R">report them to the team.</b></p>
-      <p>Thank you for your <b class="colored-R">contributions!</b></p>
-    </div>
-    <p>Add and edit your code after <b class="colored-R">that line</b> \/</p>
-  </div> 
-  <div class="divider"></div>
+  <header>
+    <div class="Title">
+        <h1><b class="colored-R">Welcome to the Test Playground</b></h1>
+      <p>This is a simple test page to explore HTML structure and styling. <br> Feel free to modify and test your code here!</p>
+      <div class="message-for-developers">
+        <p>Dear developers - <b class="colored-R">clean</b> the code for future testers or/and <b class="colored-R">if your part is still in work</b></p>
+        <p>Remember to <b class="colored-R">comment</b> your changes for better collaboration.</p>
+        <p>If you encounter any issues, please <b class="colored-R">report them to the team.</b></p>
+        <p>Thank you for your <b class="colored-R">contributions!</b></p>
+      </div>
+      <p>Add and edit your code after <b class="colored-R">that line</b> \/</p>
+    </div> 
+    <div class="divider"></div>
+  </header>
 
   <!-- WRITE CODE HERE -->
 
