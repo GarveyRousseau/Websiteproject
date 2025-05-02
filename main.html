@@ -7,13 +7,17 @@
         1. Add new features (Добавить новые функции)
         2. Fix bugs (Исправить ошибки)
         3. Improve UI (Улучшить интерфейс)
-        4. ...
-
+        4. Add some animations
+        5. Implement fade-up animations for elements
+        6. Divide website with cool animations
+        7. Add scroll triggers
 -->
 <head>
   <!-- SRC Scripts (Скрипты - Ссылки) -->
-    <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script>   <!-- Icons (Иконки) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery Library -->
+  <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script> <!-- Icons (Иконки) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> <!-- GSAP Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> <!-- ScrollTrigger Plugin -->
   <!-- Written Scripts (Написанные Скрипты) -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -148,6 +152,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harvey & Friends | Exploration Hub</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/thegoodmonolith" rel="stylesheet">
+                
+                
   <style>
 
 /*    COLOR TAGS (Цвета) [ПОД УДАЛЕНИЕ]
@@ -239,7 +246,7 @@
     #postListPopup ul li { margin:0.5rem 0; } */
     
     /* basic css*/
-      html, body {font-family:'Inter',sans-serif; background-color: var( --bgcolor-9);}
+      html, body {font-family:'TheGoodMonolith',sans-serif; background-color: var( --bgcolor-9);}
       .pretitle {background-color: var(--bgcolor-1);}
       .moveleftinf { animation: movetotheleftinf 10s linear infinite;}
       .moverightinf { animation: movetotherightinf 10s linear infinite;}
@@ -262,13 +269,15 @@
       #welcometext {position:relative; z-index:2; background-color: var(--bgcolor-9); padding:4em 0rem 0 0; justify-content: center; align-items: center; text-align: center;}
       #welcometext p {max-width: 1000px; margin: auto; }
       /* Footer */
-      #footerline { display: flex; background-color: var(--b); color: var(--bgcolor-1); justify-content: space-between; align-items:flex-end; flex-wrap:wrap;}
+      #footerline { display: flex; background-color: var(--b); color: var(--bgcolor-1); justify-content: space-between; align-items:flex-end; flex-wrap:wrap; }
       #footerlineinfo { margin:1rem; text-align: right; }
       #footerlineinfo p { max-width:300px; }
       #footerlinecredits { margin:1rem; text-align: left; }
       #footerlinecredits h3 { margin-bottom:0.5rem; color:var(--bgcolor-3) }
       #footerlinecredits ul { list-style:none; padding:0; }
-      #footerlinecredits li::before { content:'\1F338'; margin-right:8px; }
+      .maindev::before { content:'\1F3F5\FE0F'; margin-right:8px; }
+      .majordev::before { content:'\1F525'; margin-right:8px; }
+      .minordev::before { content:'\1F955'; margin-right:8px; }
     
     /* Service items */
       /* Parallax BG */
@@ -298,8 +307,8 @@
         0% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
         100% { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }}
       @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
-      @keyframes movetotheleftinf { from{background-position:0 0;} to{background-position:100px 0;} }
-      @keyframes movetotherightinf { from{background-position:0 0;} to{background-position:-100px 0;} }
+      @keyframes movetotheleftinf { from{background-position:0 0;} to{background-position:90px 0;} }
+      @keyframes movetotherightinf { from{background-position:0 0;} to{background-position:-90px 0;} }
       
       /* Dividers */
       .divider-main { height: 5px; background: repeating-linear-gradient(90deg, var(--bgcolor-1), var(--bgcolor-1) 20px, transparent 20px, transparent 25px); margin: 30px 0; }
@@ -329,7 +338,7 @@
     <!-- Title and welcome message (Заголовок и приветственное сообщение) -->
     <header>
       <div class="titlebar">
-        <h1>Just a simple <strong>Canvas</strong></h1>
+        <h1>Well... Yea<strong>...</strong></h1>
         <!--<div class="titlebarsocials">
         <p><a href="https://t.me/HarveyTheFoxik"><i class="fa-brands fa-telegram"></i> Harvey Rousseau</a></p>
         <p><a href="https://t.me/marvector"><i class="fa-brands fa-telegram"></i> Marvector</a></p>
@@ -339,7 +348,7 @@
       </div>
     <section id="welcometext">
       <h2>Welcome!</h2>
-      <p>Hewwo everyone, sooooooo this site is something like a news channel... Me and my friends gonna add cool stuff here.<br> It's gonna be interesting...</p>
+      <p>Hello everyone, This is my first serious project with me and my friends. There gonna be lots of funny and amazing stuff so prepare yourself :3<br> It's gonna be interesting...</p>
     </section>
     <div class="divider-main moveleftinf"></div>
     <!--
@@ -394,12 +403,13 @@
       <div id="footerlinecredits">
       <h3>Credits</h3>
         <ul>
-          <li>Harvey - Main Coder</li>
-          <li>Marvector - Designer</li>
+          <li class="maindev">Harvey - Main Coder</li>
+          <li class="maindev">Marvector - Designer</li>
           <div class="divider-small"></div>
-          <li>Procionnn - Coder</li>
-          <li>UwU_platok_WuW - Coder</li>
+          <li class="majordev">Procionnn - Coder</li>
+          <li class="majordev">UwU_platok_WuW - Coder</li>
           <div class="divider-small"></div>
+          <li class="minordev">Cat - Artist</li>
         </ul>
       </div>
       <div id="footerlineinfo">

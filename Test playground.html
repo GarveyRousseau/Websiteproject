@@ -125,5 +125,88 @@
 
   <!-- WRITE CODE HERE -->
 
+  <style>
+
+    .content {
+      height: 3000px; /* Make sure there's enough content to scroll */
+      background-color: #fff;
+    }
+
+    .black-bg {
+      background-color: black;
+      color: white;
+      animation: fade-up 1s ease-out forwards;
+    }
+
+    .red-bg {
+      background-color: red;
+      color: white;
+      animation: fade-up 1s ease-out forwards;
+    }
+
+    .blue-bg {
+      background-color: blue;
+      color: white;
+      animation: fade-up 1s ease-out forwards;
+    }
+    .green-bg {
+      background-color: green; /* Adding green background color */
+      color: white; /* Ensuring text is white for contrast */
+      animation: fade-up 1s ease-out forwards;
+    }
+    .yellow-bg {
+      background-color: yellow; /* Adding yellow background color */
+      color: black; /* Ensuring text is black for contrast */
+      animation: fade-up 1s ease-out forwards;
+    }
+    @keyframes fade-up {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+  </style>
+  <script>
+
+    // Listen for scroll events
+window.addEventListener('scroll', function () {
+  const scrollPosition = window.scrollY; // Get the current scroll position
+
+  // Define multiple trigger points
+  const triggerPoints = {
+    black: 500, // When you scroll past 500px, turn the background black
+    red: 1000,  // When you scroll past 1000px, turn the background red
+    blue: 1500,  // When you scroll past 1500px, turn the background blue
+    green: 2000,  // When you scroll past 2000px, turn the background green
+    yellow: 2500,  // When you scroll past 2500px, turn the background yellow
+  };
+
+  // Get the .content div
+  const contentDiv = document.querySelector('.content');
+
+  // Remove all background classes from .content
+  contentDiv.classList.remove('black-bg', 'red-bg', 'blue-bg', 'green-bg', 'yellow-bg'); // Updated to remove green and yellow classes
+
+  // Add the appropriate class based on the scroll position
+  if (scrollPosition > triggerPoints.yellow) {
+    contentDiv.classList.add('yellow-bg');
+  } else if (scrollPosition > triggerPoints.green) { // Updated to check for green first
+    contentDiv.classList.add('green-bg'); // Updated to add green background
+  } else if (scrollPosition > triggerPoints.blue) {
+    contentDiv.classList.add('blue-bg');
+  } else if (scrollPosition > triggerPoints.red) {
+    contentDiv.classList.add('red-bg');
+  } else if (scrollPosition > triggerPoints.black) {
+    contentDiv.classList.add('black-bg');
+  } 
+});
+  </script>
+  <div class="content">
+    <h1>Scroll down to see the effect</h1>
+    <p>Lorem ipsum...</p>
+    <!-- More content here to make the page scrollable -->
+  </div>
 </body>
 </html>
