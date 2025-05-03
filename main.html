@@ -91,8 +91,8 @@
 
     :root{
 
-      --fireforest-1: #FF8C00; /*text*/--b: #000000;
-      --fireforest-2: #F06E00;         --w: #ffffff;
+      --fireforest-1: #FF8C00; /*text*/
+      --fireforest-2: #F06E00;         
       --fireforest-3: #D74B00; /*h3 h4*/
       --fireforest-4: #BE2800;
       --fireforest-5: #A00A00; /*h1 h2*/
@@ -101,50 +101,16 @@
       --fireforest-8: #460000;
       --fireforest-9: #300000; 
 
+      --b: #000000;
+      --w: #FFFFFF;
          }
-    * {margin:0; padding:0; box-sizing:border-box; }
-    /* body, html { height:200vh; font-family:'Inter',sans-serif; background: #eaac8b; color:#ffffff; text-align:center; overflow-x:hidden; position:relative; }
-    .infinite-line { position:fixed; left:0; width:200%; height:4px; background:linear-gradient(to right,#ffa0a0 50%,#00000000 50%); background-size:40px 4px; z-index:3; }
-    .infinite-line.left { top:0; animation:moveLineLeft 2s linear infinite; }
-    .infinite-line.right { bottom:0; animation:moveLineRight 2s linear infinite; }
-    header { position:relative; z-index:2; background:#000000; padding:1rem 0rem; }
-    
-    .titlebar { display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:auto; }
-    
-    main { max-width:1000px; margin:2rem auto; padding:2rem; background:#00000066; border-radius:20px; box-shadow:0 8px 24px #00000080; position:relative; z-index:1; }
-    section { margin-bottom:3rem; padding:2rem; background:#ffffff0d; border-radius:16px; box-shadow:0 6px 16px #00000066; }
 
-   
-    main, section:not(#welcometext) { animation:fadeInUp 1.5s ease forwards; }
-    section:not(#welcometext):hover { transform:translateY(-5px); box-shadow:0 12px 30px #000000b3; transition:all 0.3s ease; }
-    @media(max-width:600px) {
-    .titlebar { flex-direction:column; }
-    .infinite-line { display:none; }
-    section { padding:1rem; } }
-    #welcometext { width:100vw; margin:0; box-shadow:none; animation:none; border-radius:0; background: #00000066; background-size: cover;}
-    .post-form { display:none; margin-top:0.5rem; background:#000000b3; padding:1rem; border-radius:10px; justify-content:center; min-width:75vw; flex-direction: column; align-items: center;}
-    .post-form textarea, #postName, #postDate, #postHeading { width:80%; padding:0.5rem; margin-bottom:0; background:#17171b; color:#ffffff; border:1px solid #ffa0a0; border-radius:6px; }
-    .button { padding:0.5rem 1rem; border:none; background:#ffa0a0; color:#17171b; border-radius:6px; cursor:pointer; }
-    .mainpopup {  display: none;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; background: rgba(0,0,0,0.4);  justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
-    .mainpopup.show {  display: flex;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; background: rgba(0,0,0,0.4);  justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
-    .mainpopup.hide {animation: popupOut 0.3s ease forwards;}
-    .popup {  display: none;  position: fixed;  top: 0;   left: 0; width: 100%;  height: 100%; justify-content: center; align-items: center; z-index: 5; backdrop-filter: blur(8px);}
-    .popup.show { display: flex; opacity: 1; top:0; left:0; width:100%; height:100%; justify-content:center; align-items:center; z-index:5; backdrop-filter: blur(8px);  animation: popupIn 0.4s ease forwards;}
-    .popup.hide {animation: popupOut 0.3s ease forwards;}
-    .popup-content { display:flex; background:#222222; padding:2rem; border-radius:12px; max-width:90%; text-align:center; align-items:center; flex-direction:column;}
-    .popup-content button { margin-top:1rem; background:#ffa0a0; color:#17171b; border:none; padding:0.5rem 1rem; border-radius:6px; cursor:pointer; }
-    #postList { list-style: none; padding: 0; margin: 2rem 0; position: relative; }
-    #postList li { margin: 0.5rem 0; background: #00000080; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;width: fit-content; transition: all 0.3s; transform: translateX(0); }
-    #particles-js {  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;background: linear-gradient(175deg, #9ccfdf 0%, #eaac8b 50%, #ecbaa1 55%, #eaac8b 60%, #e56b6f 70%, #b56576 80%, #6d597a 90%, #355070 100%);}
-    #postListPopup .popup-content { background:#222222; padding:2rem; border-radius:12px; max-width:90%; text-align:left; color:#ffffff; }
-    #postListPopup ul { list-style:none; padding:0; max-height:300px; overflow-y:auto; }
-    #postListPopup ul li { margin:0.5rem 0; } */
-    
+
     /* basic css*/
+    * {margin:0; padding:0; box-sizing:border-box; }
       html, body {font-family:'TheGoodMonolith',sans-serif; background-color: var( --fireforest-9);display: flex; flex-direction: column;}
       #pretitle {background-color: var(--fireforest-1);}
-      .moveleftinf { animation: movetotheleftinf 10s linear infinite;}
-      .moverightinf { animation: movetotherightinf 10s linear infinite;}
+
 
     /* basic text colors */
       #starting-page h1 {color: var(--fireforest-5);}
@@ -154,18 +120,25 @@
       #starting-page p  {color: var(--fireforest-1);}  
       #starting-page a  {color: var(--fireforest-1);} 
     /*
-      #slide-1 h1 {} #slide-2 h1 {} #slide-3 h1 {} #slide-4 h1 {} #slide-5 h1 {} #slide-6 h1 {} 
-      #slide-1 h2 {} #slide-2 h2 {} #slide-3 h2 {} #slide-4 h2 {} #slide-5 h2 {} #slide-6 h2 {} 
-      #slide-1 h3 {} #slide-2 h3 {} #slide-3 h3 {} #slide-4 h3 {} #slide-5 h3 {} #slide-6 h3 {} 
-      #slide-1 h4 {} #slide-2 h4 {} #slide-3 h4 {} #slide-4 h4 {} #slide-5 h4 {} #slide-6 h4 {} 
-      #slide-1 p  {} #slide-2 p  {} #slide-3 p  {} #slide-4 p  {} #slide-5 p  {} #slide-6 p  {} 
-      #slide-1 a  {} #slide-2 a  {} #slide-3 a  {} #slide-4 a  {} #slide-5 a  {} #slide-6 a  {}
+      #slide-1 h1 {} #slide-2 h1 {} #slide-3 h1 {}
+      #slide-1 h2 {} #slide-2 h2 {} #slide-3 h2 {}  
+      #slide-1 h3 {} #slide-2 h3 {} #slide-3 h3 {}  
+      #slide-1 h4 {} #slide-2 h4 {} #slide-3 h4 {} 
+      #slide-1 p  {} #slide-2 p  {} #slide-3 p  {}  
+      #slide-1 a  {} #slide-2 a  {} #slide-3 a  {}
+
+      #slide-4 h1 {} #slide-5 h1 {} #slide-6 h1 {}
+      #slide-4 h2 {} #slide-5 h2 {} #slide-6 h2 {}
+      #slide-4 h3 {} #slide-5 h3 {} #slide-6 h3 {}
+      #slide-4 h4 {} #slide-5 h4 {} #slide-6 h4 {} 
+      #slide-4 p  {} #slide-5 p  {} #slide-6 p  {}
+      #slide-4 a  {} #slide-5 a  {} #slide-6 a  {}
     */
 
       .secret {color: var(--fireforest-7);}
     
     /* hard css */
-      /* short title */   
+  
       #short-title { background-color: var(--fireforest-9); padding: 0.5rem; border-radius: 0 0 0.5em 0.5em; position: fixed; min-width: 100%; z-index: 1; justify-content: center; align-items: center; text-align: center;}
       #short-title p { text-align: right; padding-right: 15%;}
       /* title */
@@ -204,17 +177,6 @@
       #parallax-t { display: flex; top: -20vh; align-items: center; justify-content: center; text-align: center; height: 100%; flex-direction: column;}
       #parallax-t h1 { font-size: 4em; text-align: center; }
       #parallax-t h2 { font-size: 2em; text-align: center; }
-    
-      /* Animations */
-      @keyframes popupIn {
-        0% { opacity: 0;  backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
-        100% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }}
-      @keyframes popupOut {
-        0% { opacity: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-        100% { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }}
-      @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
-      @keyframes movetotheleftinf { from{background-position:0 0;} to{background-position:90px 0;} }
-      @keyframes movetotherightinf { from{background-position:0 0;} to{background-position:-90px 0;} }
       
       /* Dividers */
       .divider-main { height: 5px; background: repeating-linear-gradient(90deg, var(--fireforest-1), var(--fireforest-1) 20px, transparent 20px, transparent 25px); margin: 30px 0; }
@@ -314,7 +276,7 @@
 
   gsap.from("#parallax-background-scene-1 > .parallax", {
       y: (i, target) => -2 * target.dataset.speed,
-      duration: 5,
+      duration: 2,
       stagger: {
         amount: 0.1,
         from: "end",
@@ -334,8 +296,7 @@
   });
 
   let smoother = ScrollSmoother.create({
-    smooth: 3,   // seconds it takes to "catch up" to native scroll position
-    effects: false // look for data-speed and data-lag attributes on elements and animate accordingly
+    smooth: 3,  
   });
 
   // SHORT TITLE TEXT ROTATION
