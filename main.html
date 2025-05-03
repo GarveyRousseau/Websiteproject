@@ -12,143 +12,37 @@
         6. Divide website with cool animations
         7. Add scroll triggers
         8. Add slideshow
+        9. IMPORTANT REDO ANIMATIONS VIA GSAP
 -->
 <head>
   <!-- SRC Scripts (Скрипты - Ссылки) -->
-  <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script> <!-- Icons (Иконки) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> <!-- GSAP Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> <!-- ScrollTrigger Plugin -->
-  <!-- Written Scripts (Написанные Скрипты) -->
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // DOM Manipulation (Post Form, List, and Popup Handling)
-    const postList       = document.getElementById('postList');
-    const postPopup      = document.getElementById('postPopup');
-    const popupText      = document.getElementById('popupText');
-    const closePopup     = document.getElementById('closePopup');
-    const postForm       = document.getElementById('postForm');
-    const postContent    = document.getElementById('postContent');
-    const postName       = document.getElementById('postName');
-    const postDate       = document.getElementById('postDate');
-    const postHeading    = document.getElementById('postHeading');
-    const submitPostBtn  = document.getElementById('submitPost');
-    const openFormBtn    = document.getElementById('openPostForm');
-    const openListBtn    = document.getElementById('openPostList');
-    const listPopup      = document.getElementById('postListPopup');
-    const closeListBtn   = document.getElementById('closePopupList');
-    const postDiv        = document.getElementById('Posts');
+  <script src="https://kit.fontawesome.com/be4624f477.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EaselPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/GSDevTools.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathHelper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Physics2DPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/PhysicsPropsPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/PixiPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>   
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EasePack.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomBounce.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomWiggle.min.js"></script>
 
-    openFormBtn.addEventListener('click', () => {
-      postForm.style.display = postForm.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    submitPostBtn.addEventListener('click', () => {
-      const txt = postContent.value.trim();
-      const nm  = postName.value.trim();
-      const dt  = postDate.value.trim();
-      const hd  = postHeading.value.trim();
-      if (!txt || !nm || !dt || !hd) return;
-
-      const li = document.createElement('li');
-      li.textContent = `${hd} - ${nm} (${dt})`;
-      li.addEventListener('click', () => {
-        listPopup.classList.remove('show');
-        listPopup.classList.add('hide');
-        setTimeout(() => openPopup(
-          `<strong>${hd}</strong><br>by ${nm} (${dt})<br><br>${txt}`
-        ), 300);
-      });
-
-      postList.appendChild(li);
-      postHeading.value = postName.value = postDate.value = postContent.value = '';
-      postForm.style.display = 'none';
-    });
-
-    openListBtn.addEventListener('click', () => {
-      postDiv.classList.remove('hide');
-      postDiv.classList.add('show');
-      listPopup.classList.remove('hide');
-      listPopup.classList.add('show');
-      postPopup.classList.remove('show', 'hide');
-    });
-
-    closeListBtn.addEventListener('click', () => {
-      animateHide(listPopup);
-    });
-
-    closePopup.addEventListener('click', () => {
-      postPopup.classList.remove('show');
-      postPopup.classList.add('hide');
-      setTimeout(() => {
-        listPopup.classList.remove('hide');
-        listPopup.classList.add('show');
-      }, 300);
-    });
-
-    window.addEventListener('click', e => {
-      if (e.target === postPopup) {
-        postPopup.classList.remove('show');
-        postPopup.classList.add('hide');
-        setTimeout(() => {
-          listPopup.classList.remove('hide');
-          listPopup.classList.add('show');
-        }, 300);
-      }
-      if (e.target === listPopup) {
-        listPopup.classList.remove('show');
-        listPopup.classList.add('hide');
-        postDiv.classList.remove('show');
-        postDiv.classList.add('hide');
-      }
-    });
-
-    function openPopup(content) {
-      popupText.innerHTML = content;
-      postPopup.classList.add('show');
-      listPopup.classList.remove('show');
-    }
-
-    function animateHide(popupEl) {
-      popupEl.classList.remove("show");
-      postDiv.classList.remove("show");
-      popupEl.classList.add("hide");
-      postDiv.classList.add("hide");
-      function onAnimEnd(e) {
-        e.target.classList.remove("hide");
-      }
-      popupEl.addEventListener("animationend", onAnimEnd, { once: true });
-      postDiv.addEventListener("animationend", onAnimEnd, { once: true });
-    }
-    function openPopup(content) {
-      popupText.innerHTML = content;
-      postPopup.classList.add('show');
-      listPopup.classList.remove('show');
-    }
-  }); 
-  </script> 
-  <script>
-    window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-
-    document.querySelectorAll('.parallax').forEach(layer => {
-      const speed = layer.getAttribute('data-speed');
-      layer.style.transform = `translate3d(0, ${scrollTop * speed / 120}px, 0)`;
-    });
-
-    // Shrink the text in parallax-t when scrolling (Сжатие во время прокрутки)
-    const parallaxTextH1 = document.querySelector('#parallax-t h1');
-    const parallaxTextH2 = document.querySelector('#parallax-t h2');
-    if (parallaxTextH1) {
-      const scaleH1 = Math.max(1 - scrollTop / 1000, 0.5); // Shrink to a minimum of 50% (Сжатие до минимума 50%)
-      parallaxTextH1.style.transform = `scale(${scaleH1})`;
-    }
-    if (parallaxTextH2) {
-      const scaleH2 = Math.max(1 - scrollTop / 1000, 0.5); // Shrink to a minimum of 50% (Сжатие до минимума 50%)
-      parallaxTextH2.style.transform = `scale(${scaleH2})`;
-    }
-    });
-  </script> <!-- Paralax bg (Фон - Параллакс) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harvey & Friends | Exploration Hub</title>
@@ -247,7 +141,7 @@
     #postListPopup ul li { margin:0.5rem 0; } */
     
     /* basic css*/
-      html, body {font-family:'TheGoodMonolith',sans-serif; background-color: var( --bgcolor-9);}
+      html, body {font-family:'TheGoodMonolith',sans-serif; background-color: var( --bgcolor-9);display: flex; flex-direction: column;}
       #pretitle {background-color: var(--bgcolor-1);}
       .moveleftinf { animation: movetotheleftinf 10s linear infinite;}
       .moverightinf { animation: movetotherightinf 10s linear infinite;}
@@ -280,6 +174,7 @@
       #welcome-text {position:relative; z-index:2; background-color: var(--bgcolor-9); padding:4em 0rem 0 0; justify-content: center; align-items: center; text-align: center;}
       #welcome-text p {max-width: 1000px; margin: auto; }
       /* Footer */
+      footer {position: relative; z-index: -1;}
       #footerline { display: flex; background-color: var(--b); color: var(--bgcolor-1); justify-content: space-between; align-items:flex-end; flex-wrap:wrap; }
       #footerline-info { margin:1rem; text-align: right; }
       #footerline-info p { max-width:300px; }
@@ -292,7 +187,7 @@
     
     /* Service items */
       /* Parallax BG */
-      #parallax-background { position: relative; width: 100%; height: 100vh; overflow: hidden; display: flex; align-items: center;}
+      #parallax-background-scene-1 { position: relative; width: 100%; height: 100vh; overflow: hidden; display: flex; align-items: center;}
       .parallax-img { display: flex; align-items: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; will-change: transform; }
       
       /* Parallax Layers */
@@ -327,7 +222,7 @@
     </style>
   </head>
   <body>
-    <section id="starting-page">
+    <div id="starting-page">
       <div id="pretitle">
         <!-- Short title (Короткий титуль) -->
         <section id="short-title">
@@ -335,17 +230,17 @@
           <p><i class="secret">- Richard Branson 2006</i></p>
         </section>
         <!-- Parallax background (Фон)  -->
-        <div id="parallax-background">
-          <div id="parallax-1" class="parallax-img parallax" data-speed="160"></div>
-          <div id="parallax-2" class="parallax-img parallax" data-speed="125"></div>
-          <div id="parallax-3" class="parallax-img parallax" data-speed="105"></div>
-          <div id="parallax-t" class="parallax-img parallax" data-speed="140"><h1>Exploration Hub</h1><br><h2>"It's easy" they said...</h2></div>
-          <div id="parallax-4" class="parallax-img parallax" data-speed="85"></div>
-          <div id="parallax-5" class="parallax-img parallax" data-speed="65"></div>
-          <div id="parallax-6" class="parallax-img parallax" data-speed="60"></div>
-          <div id="parallax-7" class="parallax-img parallax" data-speed="38"></div>
-          <div id="parallax-8" class="parallax-img parallax" data-speed="30"></div>
-          <div id="parallax-9" class="parallax-img"></div>
+        <div id="parallax-background-scene-1">
+          <div id="parallax-1" class="parallax-img parallax" data-speed="105"></div>
+          <div id="parallax-2" class="parallax-img parallax" data-speed="100"></div>
+          <div id="parallax-3" class="parallax-img parallax" data-speed="95"></div>
+          <div id="parallax-t" class="parallax-img parallax" data-speed="90"><h1>Exploration Hub</h1><br><h2>"It's easy" they said...</h2></div>
+          <div id="parallax-4" class="parallax-img parallax" data-speed="80"></div>
+          <div id="parallax-5" class="parallax-img parallax" data-speed="70"></div>
+          <div id="parallax-6" class="parallax-img parallax" data-speed="55"></div>
+          <div id="parallax-7" class="parallax-img parallax" data-speed="40"></div>
+          <div id="parallax-8" class="parallax-img parallax" data-speed="20"></div>
+          <div id="parallax-9" class="parallax-img" data-speed="0"></div>
         </div>
       </div>
       <!-- Title and welcome message (Заголовок и приветственное сообщение) -->
@@ -360,85 +255,75 @@
           <p><a href="https://t.me/dsfghiuojhyhljh"><i class="fa-brands fa-telegram"></i> UwU_platok_WuW</a></p>
           </div>-->
         </div>
-      <section id="welcome-text">
-        <h2>Welcome!</h2>
-        <p>Hello everyone, This is my first serious project with me and my friends. There gonna be lots of funny and amazing stuff so prepare yourself :3<br> It's gonna be interesting...</p>
-      </section>
+        <div id="welcome-text">
+          <h2>Welcome!</h2>
+          <p>Hello everyone, This is my first serious project with me and my friends. There gonna be lots of funny and amazing stuff so prepare yourself :3<br> It's gonna be interesting...</p>
+        </div>
       <div class="divider-main moveleftinf"></div>
-        <!--
-        <div class="titleend"></div>
-          <div class="titleendposts"></div>
-            <div class="titleenditems">
-              <div class="titleendbuttons">
-              <button id="openPostForm" class="button">Add Post</button>
-              <button id="openPostList" class="button">Post List</button>
-              </div>
-              <div class="titleendtext">
-                <p>Here you can find the latest updates and posts!</p>
-              </div>
-            </div>
-            <div id="postForm" class="post-form">
-              <input id="postHeading" type="text" placeholder="Name it..."><br>
-              <input id="postName" type="text" placeholder="Your name..."><br>
-              <input id="postDate" type="date" placeholder="Date (YYYY-MM-DD)..."><br>
-              <textarea id="postContent" rows="3" placeholder="One word goes after another... Write something"></textarea><br>
-              <button id="submitPost" class="button">Submit</button>
-            </div>
-          </div>
-        </div>-->
       </header>
       <!-- Main content (Основной контент) -->
       <div id="aboutme">
         <div id="aboutme-photoalbum"></div>
         <div id="aboutme-text"></div>
       </div>
-      <!-- Slide show (Слайд Шоу)-->
-      <section id="slideshow">
-        <div id="slide-1"></div>
-        <div id="slide-2"></div>
-        <div id="slide-3"></div>
-        <div id="slide-4"></div>
-        <div id="slide-5"></div>
-        <div id="slide-6"></div>
-      </section>
-    </section>
-  <!-- Popups (Всплывающие окна)  -->
-  <!--<div id="Posts" class="mainpopup">
-    <div id="postPopup" class="popup">
-      <div id="postContent" class="popup-content">
-        <div id="popupText"></div>
-        <button id="closePopup" class="button">Back...</button>
+      <div id="myhobbies">
+
       </div>
-    </div>
-    <div id="postListPopup" class="popup">
-      <div id="postListContent" class="popup-content">
-        <h2>This Is Posts by people:</h2>
-        <div>
-          <ul id="postList"></ul>
+      <footer>
+        <div id="footerline">
+          <div id="footerline-credits">
+          <h3>Credits</h3>
+            <ul>
+              <li class="maindev">Harvey - Main Coder</li>
+              <li class="maindev">Marvector - Designer</li>
+              <div class="divider-small"></div>
+              <li class="majordev">Procionnn - Coder</li>
+              <li class="majordev">UwU_platok_WuW - Coder</li>
+              <div class="divider-small"></div>
+              <li class="minordev">Cat - Artist</li>
+            </ul>
+          </div>
+          <div id="footerline-info">
+            <p>Exploration Hub is a cute lil' project by Harvey and his friends. <br> <strong>2025</strong></p>
+          </div>
         </div>
-        <button id="closePopupList" class="button">Close</button>
-      </div>
+      </footer>  
     </div>
-  </div>-->
-  <!-- Footer and credits (Футер и кредиты) -->  
-  <footer>
-    <div id="footerline">
-      <div id="footerline-credits">
-      <h3>Credits</h3>
-        <ul>
-          <li class="maindev">Harvey - Main Coder</li>
-          <li class="maindev">Marvector - Designer</li>
-          <div class="divider-small"></div>
-          <li class="majordev">Procionnn - Coder</li>
-          <li class="majordev">UwU_platok_WuW - Coder</li>
-          <div class="divider-small"></div>
-          <li class="minordev">Cat - Artist</li>
-        </ul>
-      </div>
-      <div id="footerline-info">
-        <p>Exploration Hub is a cute lil' project by Harvey and his friends. <br> <strong>2025</strong></p>
-      </div>
+    <!-- Slide show (Слайд Шоу)-->
+    <div id="slideshow">
+      <div id="slide-1"></div>
+      <div id="slide-2"></div>
+      <div id="slide-3"></div>
+      <div id="slide-4"></div>
+      <div id="slide-5"></div>
+      <div id="slide-6"></div>
     </div>
-  </footer>
-</body>
+    <!-- Footer and credits (Футер и кредиты) -->  
+    <
+  </body>
+  <!-- GSAP UNITE SCRIPT -->
+  <script> 
+  
+  //Paralax bg (Фон - Параллакс)
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  let scrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    scrollY = window.scrollY;
+    gsap.to("#parallax-background-scene-1 > .parallax", {
+      y: (i, target) => scrollY * 0.01 * target.dataset.speed,
+      duration: 2,
+      stagger: {
+        amount: 0.1,
+        from: "end",
+      },
+    });
+  });
+
+  let smoother = ScrollSmoother.create({
+  smooth: 3,   // seconds it takes to "catch up" to native scroll position
+  effects: false // look for data-speed and data-lag attributes on elements and animate accordingly
+});
+    
+  </script> 
 </html>
