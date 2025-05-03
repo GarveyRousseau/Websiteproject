@@ -8,11 +8,11 @@
         2. Fix bugs (Исправить ошибки)
         3. Improve UI (Улучшить интерфейс)
         4. Add some animations
-        5. Implement fade-up animations for elements
+        5.
         6. Divide website with cool animations
         7. Add scroll triggers
         8. Add slideshow
-        9. IMPORTANT REDO ANIMATIONS VIA GSAP
+        9. Add more cool interactive and cool stuff
 -->
 <head>
   <!-- SRC Scripts (Скрипты - Ссылки) -->
@@ -91,15 +91,15 @@
 
     :root{
 
-      --bgcolor-1: #FF8C00; /*text*/--b: #000000;
-      --bgcolor-2: #F06E00;         --w: #ffffff;
-      --bgcolor-3: #D74B00; /*h3 h4*/
-      --bgcolor-4: #BE2800;
-      --bgcolor-5: #A00A00; /*h1 h2*/
-      --bgcolor-6: #820500;
-      --bgcolor-7: #640000; /*secret*/
-      --bgcolor-8: #460000;
-      --bgcolor-9: #300000; 
+      --fireforest-1: #FF8C00; /*text*/--b: #000000;
+      --fireforest-2: #F06E00;         --w: #ffffff;
+      --fireforest-3: #D74B00; /*h3 h4*/
+      --fireforest-4: #BE2800;
+      --fireforest-5: #A00A00; /*h1 h2*/
+      --fireforest-6: #820500;
+      --fireforest-7: #640000; /*secret*/
+      --fireforest-8: #460000;
+      --fireforest-9: #300000; 
 
          }
     * {margin:0; padding:0; box-sizing:border-box; }
@@ -141,18 +141,18 @@
     #postListPopup ul li { margin:0.5rem 0; } */
     
     /* basic css*/
-      html, body {font-family:'TheGoodMonolith',sans-serif; background-color: var( --bgcolor-9);display: flex; flex-direction: column;}
-      #pretitle {background-color: var(--bgcolor-1);}
+      html, body {font-family:'TheGoodMonolith',sans-serif; background-color: var( --fireforest-9);display: flex; flex-direction: column;}
+      #pretitle {background-color: var(--fireforest-1);}
       .moveleftinf { animation: movetotheleftinf 10s linear infinite;}
       .moverightinf { animation: movetotherightinf 10s linear infinite;}
 
     /* basic text colors */
-      #starting-page h1 {color: var(--bgcolor-5);}
-      #starting-page h2 {color: var(--bgcolor-5);}
-      #starting-page h3 {color: var(--bgcolor-3);}
-      #starting-page h4 {color: var(--bgcolor-3);}
-      #starting-page p  {color: var(--bgcolor-1);}  
-      #starting-page a  {color: var(--bgcolor-1);} 
+      #starting-page h1 {color: var(--fireforest-5);}
+      #starting-page h2 {color: var(--fireforest-5);}
+      #starting-page h3 {color: var(--fireforest-3);}
+      #starting-page h4 {color: var(--fireforest-3);}
+      #starting-page p  {color: var(--fireforest-1);}  
+      #starting-page a  {color: var(--fireforest-1);} 
     /*
       #slide-1 h1 {} #slide-2 h1 {} #slide-3 h1 {} #slide-4 h1 {} #slide-5 h1 {} #slide-6 h1 {} 
       #slide-1 h2 {} #slide-2 h2 {} #slide-3 h2 {} #slide-4 h2 {} #slide-5 h2 {} #slide-6 h2 {} 
@@ -162,24 +162,24 @@
       #slide-1 a  {} #slide-2 a  {} #slide-3 a  {} #slide-4 a  {} #slide-5 a  {} #slide-6 a  {}
     */
 
-      .secret {color: var(--bgcolor-7);}
+      .secret {color: var(--fireforest-7);}
     
     /* hard css */
       /* short title */   
-      #short-title { background-color: var(--bgcolor-9); padding: 0.5rem; border-radius: 0 0 0.5em 0.5em; position: fixed; min-width: 100%; z-index: 1; justify-content: center; align-items: center; text-align: center;}
+      #short-title { background-color: var(--fireforest-9); padding: 0.5rem; border-radius: 0 0 0.5em 0.5em; position: fixed; min-width: 100%; z-index: 1; justify-content: center; align-items: center; text-align: center;}
       #short-title p { text-align: right; padding-right: 15%;}
       /* title */
-      #title-bar { flex-direction: column; top: 0; background-color: var(--bgcolor-9); display: flex; justify-content: center; align-items: center; padding: 0 15px; }
+      #title-bar { flex-direction: column; top: 0; background-color: var(--fireforest-9); display: flex; justify-content: center; align-items: center; padding: 0 15px; }
 
-      #welcome-text {position:relative; z-index:2; background-color: var(--bgcolor-9); padding:4em 0rem 0 0; justify-content: center; align-items: center; text-align: center;}
+      #welcome-text {position:relative; z-index:2; background-color: var(--fireforest-9); padding:4em 0rem 0 0; justify-content: center; align-items: center; text-align: center;}
       #welcome-text p {max-width: 1000px; margin: auto; }
       /* Footer */
       footer {position: relative; z-index: -1;}
-      #footerline { display: flex; background-color: var(--b); color: var(--bgcolor-1); justify-content: space-between; align-items:flex-end; flex-wrap:wrap; }
+      #footerline { display: flex; background-color: var(--b); color: var(--fireforest-1); justify-content: space-between; align-items:flex-end; flex-wrap:wrap; }
       #footerline-info { margin:1rem; text-align: right; }
       #footerline-info p { max-width:300px; }
       #footerline-credits { margin:1rem; text-align: left; }
-      #footerline-credits h3 { margin-bottom:0.5rem; color:var(--bgcolor-3) }
+      #footerline-credits h3 { margin-bottom:0.5rem; color:var(--fireforest-3) }
       #footerline-credits ul { list-style:none; padding:0; }
       .maindev::before { content:'\1F3F5\FE0F'; margin-right:8px; }
       .majordev::before { content:'\1F525'; margin-right:8px; }
@@ -217,8 +217,8 @@
       @keyframes movetotherightinf { from{background-position:0 0;} to{background-position:-90px 0;} }
       
       /* Dividers */
-      .divider-main { height: 5px; background: repeating-linear-gradient(90deg, var(--bgcolor-1), var(--bgcolor-1) 20px, transparent 20px, transparent 25px); margin: 30px 0; }
-      .divider-small { height: 2px; background: var(--bgcolor-1); margin: 5px; }
+      .divider-main { height: 5px; background: repeating-linear-gradient(90deg, var(--fireforest-1), var(--fireforest-1) 20px, transparent 20px, transparent 25px); margin: 30px 0; }
+      .divider-small { height: 2px; background: var(--fireforest-1); margin: 5px; }
     </style>
   </head>
   <body>
@@ -226,15 +226,15 @@
       <div id="pretitle">
         <!-- Short title (Короткий титуль) -->
         <section id="short-title">
-          <h2>"You don’t learn to walk by following rules. You learn by doing, and by falling over."</h2>
-          <p><i class="secret">- Richard Branson 2006</i></p>
+          <h2 class="short-title-quote scramble-glitch">"You don’t learn to walk by following rules. You learn by doing, and by falling over."</h2>
+          <p><i class="secret short-title-quote-ps scramble-glitch">- Richard Branson 2006</i></p>
         </section>
         <!-- Parallax background (Фон)  -->
         <div id="parallax-background-scene-1">
           <div id="parallax-1" class="parallax-img parallax" data-speed="105"></div>
           <div id="parallax-2" class="parallax-img parallax" data-speed="100"></div>
           <div id="parallax-3" class="parallax-img parallax" data-speed="95"></div>
-          <div id="parallax-t" class="parallax-img parallax" data-speed="90"><h1>Exploration Hub</h1><br><h2>"It's easy" they said...</h2></div>
+          <div id="parallax-t" class="parallax-img parallax" data-speed="90"><h1 class="scramble-glitch">Exploration Hub</h1><br><h2 class="scramble-glitch">"It's easy" they said...</h2></div>
           <div id="parallax-4" class="parallax-img parallax" data-speed="80"></div>
           <div id="parallax-5" class="parallax-img parallax" data-speed="70"></div>
           <div id="parallax-6" class="parallax-img parallax" data-speed="55"></div>
@@ -266,9 +266,14 @@
         <div id="aboutme-photoalbum"></div>
         <div id="aboutme-text"></div>
       </div>
+      <div id="myfriends">
+
+      </div>
+      <!-- harvey hobbies-->
       <div id="myhobbies">
 
       </div>
+      <!-- footer and credits -->
       <footer>
         <div id="footerline">
           <div id="footerline-credits">
@@ -299,14 +304,22 @@
       <div id="slide-6"></div>
     </div>
     <!-- Footer and credits (Футер и кредиты) -->  
-    <
   </body>
   <!-- GSAP UNITE SCRIPT -->
   <script> 
   
-  //Paralax bg (Фон - Параллакс)
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  // PARALAX BACKGROUND
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrambleTextPlugin);
   let scrollY = window.scrollY;
+
+  gsap.from("#parallax-background-scene-1 > .parallax", {
+      y: (i, target) => -2 * target.dataset.speed,
+      duration: 5,
+      stagger: {
+        amount: 0.1,
+        from: "end",
+      },
+    });
 
   window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
@@ -321,9 +334,30 @@
   });
 
   let smoother = ScrollSmoother.create({
-  smooth: 3,   // seconds it takes to "catch up" to native scroll position
-  effects: false // look for data-speed and data-lag attributes on elements and animate accordingly
-});
-    
+    smooth: 3,   // seconds it takes to "catch up" to native scroll position
+    effects: false // look for data-speed and data-lag attributes on elements and animate accordingly
+  });
+
+  // SHORT TITLE TEXT ROTATION
+  let shorttitlequote = gsap.timeline({repeat: -1, repeatDelay: 0});
+  shorttitlequote.to(".short-title-quote", {duration: 5, scrambleText: {text: "\"Fail fast. Learn faster. Keep moving.\"", speed: 1, chars: "@#&%$0/\\|><"}}, "+=15")
+                .to(".short-title-quote-ps", {duration: 5, scrambleText: {text: "- Elon Musk, 2013", speed: 1, chars: "@#&%$0/\\|><"}}, "-=5")
+                .to(".short-title-quote", {duration: 5, scrambleText: {text: "\"Courage doesn’t mean you don’t get afraid. Courage means you don’t let fear stop you.\"", speed: 1, chars: "@#&%$0/\\|><"}}, "+=15")
+                .to(".short-title-quote-ps", {duration: 5,scrambleText: {text: "- Bethany Hamilton, 2007", speed: 1, chars: "@#&%$0/\\|><"}}, "-=5")
+                .to(".short-title-quote", {duration: 5,scrambleText: {text: "\"The best way to predict the future is to create it.\"", speed: 1, chars: "@#&%$0/\\|><"}}, "+=15")
+                .to(".short-title-quote-ps", {duration: 5, scrambleText: {text: "- Peter Drucker, 1966", speed: 1, chars: "@#&%$0/\\|><"}}, "-=5")
+                .to(".short-title-quote", {duration: 5, scrambleText: {text: "\"You don’t learn to walk by following rules. You learn by doing, and by falling over.\"", speed: 1, chars: "@#&%$0/\\|><"}}, "+=15")
+                .to(".short-title-quote-ps", {duration: 5, scrambleText: {text: "- Richard Branson 2006", speed: 1, chars: "@#&%$0/\\|><"}}, "-=5")
+
+  // SCRAMBLE-GLITCH THINGY ON START OF THE PAGE
+  gsap.to(".scramble-glitch", {
+      duration: 10,
+      scrambleText: {
+        text: "{original}",
+        speed: 1,
+        chars: "@#&%$0/\\|><",
+      },
+      ease: "power3.out"
+    });
   </script> 
 </html>
