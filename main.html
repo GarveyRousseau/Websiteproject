@@ -148,6 +148,7 @@
       #slide-4 { background-color: var(--fireforest-4); }
       #slide-5 { background-color: var(--fireforest-5); }
       #slide-6 { background-color: var(--fireforest-6); }
+      #slide-7 { background-color: var(--fireforest-7); }
       
       /* Dividers */
       .divider-main { height: 5px; background: repeating-linear-gradient(90deg, var(--fireforest-1), var(--fireforest-1) 20px, transparent 20px, transparent 25px); margin: 30px 0; }
@@ -217,6 +218,13 @@
           <p>Content for slide 6 goes here.</p>
           <p>Additional content for slide 6 can be added here.</p>
           
+        </div>
+        <div id="slide-7" class="slide">
+          <div id="friends-container">
+            <div id="column-1"></div>
+            <div id="column-2"></div>
+            <div id="column-3"></div>
+          </div>
         </div>
       </div>
       <!-- footer and credits -->
@@ -372,5 +380,17 @@
       }
 
   });
+  let slide7 = gsap.timeline({
+      scrollTrigger: {
+          trigger: '#slide-7',
+          pin: true,
+          start: 'top top', 
+          end: '+=0', 
+      }
+
+      
+  });
+  
+  
   </script> 
 </html>
