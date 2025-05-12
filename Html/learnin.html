@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Школа "Лидер" Веб 12</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <style>
+html {height: 300vh;}
+
+.box { 
+    margin: 5px; 
+    height: 100px; 
+    width: 100px; 
+    background-color: rgb(241, 150, 31);
+}
+
+.tlbox,.tl2box,.tl3box { 
+    height: 100px; 
+    width: 100px; 
+    background-color: rgb(0, 0, 0);
+}
+
+.sbox {height: 100px; width: 100px; background-color: aquamarine; margin-top: 200vh;}
+   
+  </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column ;">
+ <div class="box"></div>
+ x: 100	- transform: translateX(100px)
+ y: 100 - transform: translateY(100px)
+ xPercent: 50 -	transform: translateX(50%)
+ yPercent: 50 -	transform: translateY(50%)
+ scale: 2 -	transform: scale(2)
+ scaleX: 2 -	transform: scaleX(2)
+ scaleY: 2 -	transform: scaleY(2)
+ rotation: 90 -	transform: rotate(90deg)
+ rotation: "1.25rad"	Using Radians - no CSS alternative
+ skew: 30	transform: skew(30deg)
+ skewX: 30	transform: skewX(30deg)
+ skewY: "1.23rad"	Using Radians - no CSS alternative
+ transformOrigin: "center 40%"	transform-origin: center 40%
+ opacity: 0	adjust the elements opacity
+ autoAlpha: 0	shorthand for opacity & visibility
+ duration: 1	animation-duration: 1s
+ repeat: -1	animation-iteration-count: infinite
+ repeat: 2	animation-iteration-count: 2
+ delay: 2	animation-delay: 2
+ yoyo: true
+ <div class="tlbox"></div>
+ <div class="tl2box"></div>
+ <div class="tl3box"></div>
+
+ <div class="sbox"></div>
+  </div>
+  <a href="https://gsap.com/resources/get-started">ASHKDAJKHSDKAJHDKJAHDKJAHDKJAHDKJSHADKJH</a>
+</body>
+<script>
+ gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".box", {
+        x: "100px",  // по оси икс
+        y: "10em", // по оси y
+        duration: 2, // за сколько
+        repeat: -1, // сколько повторов (-1 бескон)
+        ease: "bounce" // cглаживание
+    
+    });
+
+    let tl = gsap.timeline({repeat: -1});
+
+    tl.fromTo(".tlbox", { x: "100px"}, "-=2")
+      .to(".tl2box", { x: "100px"}, "+=1")
+      .to(".tl3box", { x: "100px"}) // Будет выпольняться по очереди 
+
+
+//let tl = gsap.timeline({
+    // yes, we can add it to an entire timeline!
+//    scrollTrigger: {
+ //       trigger: '.container',
+   //     pin: true, // pin the trigger element while active
+     //   start: 'top top', // when the top of the trigger hits the top of the viewport
+       // end: '+=500', // end after scrolling 500px beyond the start
+        //scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        //}
+//});
+//tl.to
+</script>
+</html>
