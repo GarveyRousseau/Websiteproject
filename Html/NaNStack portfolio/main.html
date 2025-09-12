@@ -6,33 +6,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="We aren't fixing errors, we are one!">
-    <meta name="title" content="&lt;NaNStack /&gt;">
+    <meta name="title" content="&lt;NaNStack /&gt; Team portfolio">
     <meta name="keywords" content="NaNStack, Portfolio, HTML, CSS, JavaScript">
     <meta name="author" content="HarveyRousseau, AnTeR69rus, UwU_platok_WuW">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    
     <style>
         @font-face { font-family: 'DepartureMono-Regular'; src: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/Html/NaNStack%20portfolio/Assets/DepartureMono-Regular.otf") format('opentype');}
         :root {
+            --b:#000000;
             --w: #FFFFFF;
+            --m1: #312322;
+            --m2: #412414;
+            --a1: #532637;
+            --t2: #936871;
+            --t1: #B68782;
+            --ta: #CFA3B2;
+
         }
 
-        html, body { font-family: 'DepartureMono-Regular', monospace; padding: 0; margin: 0;}
+        html, body { font-family: 'DepartureMono-Regular', monospace; padding: 0; margin: 0; height: 100%; width: 100%;}
+    
+        .subtext{
+            position:absolute;
+            top:60%;
+            left:55%;
+        }
+
     </style>
 </head>
 <body>
-    <header>
-       &lt;NaNStack /&gt;
-    </header>
     <main>
-       <div id="main-content">
-          <div id="sector-1"></div>
-          <div id="sector-2"></div>
-          <div id="sector-3"></div>
-          <div id="sector-4"></div>
-          <div id="sector-5"></div>
+        <div id="main-content">
+        
+            <div id="main-sector-1">
+                <div id="main-sector-1-bg">
+                    <div id="main-sector-1-content">
+                        <h1>&lt;NaNStack /&gt; team </h1> 
+                        <div class="subtext">
+                            <h2></h2>
+                         </div>
+                    </div>
+                </div>       
+            </div>
+            <div id="main-sector-2"></div>
+            <div id="main-sector-3"></div>
+            <div id="main-sector-4"></div>
+            <div id="main-sector-5"></div>
        </div>
     </main>
     <footer>
@@ -42,5 +66,71 @@
 <script id="GSAPUnite">
     //GSAP UNITE SCRIPT
 
+        //GSAP REGISTER
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrambleTextPlugin)
+
+        //SCRAMBLE
+        gsap.to(".effect-ScrambleText", {
+            duration: 10,
+            scrambleText: {
+            text: "{original}",
+            speed: 1,
+            chars: "@#&%0/\\|><",
+            },
+            ease: "power3.out"
+        });
+
+        //PIN sec 2-5
+        
+        let SecPin2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#main-sector-2',
+                 pin: true,
+                start: 'top top', 
+                  end: '+=0', 
+            }
+        });
+        let SecPin3 = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#main-sector-3',
+                 pin: true,
+                start: 'top top', 
+                  end: '+=0', 
+            }
+        });
+        let SecPin4 = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#main-sector-4',
+                 pin: true,
+                start: 'top top', 
+                  end: '+=0', 
+            }
+        });
+        let SecPin5 = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#main-sector-5',
+                 pin: true,
+                start: 'top top', 
+                  end: '+=0', 
+            }
+        });
+
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    i like move it move it 
+        i like 
+        move it 
+-->
