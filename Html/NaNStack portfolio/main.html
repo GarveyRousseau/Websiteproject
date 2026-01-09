@@ -12,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     
     <style>
@@ -28,39 +27,46 @@
             --ta: #CFA3B2;
 
         }
+        #smooth-wrapper {
+            overflow: hidden;
+        }
 
         html, body { font-family: 'DepartureMono-Regular', monospace; padding: 0; margin: 0; height: 100%; width: 100%;}
-    
-        .subtext{
-            position:absolute;
-            top:60%;
-            left:55%;
+        .slides {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
     </style>
 </head>
 <body>
-    <main>
-        <div id="main-content">
-            <div id="main-sector-1">
-                <div id="main-sector-1-bg">
-                    <div id="main-sector-1-content">
-                        <h1>&lt;NaNStack /&gt; team </h1> 
-                        <div class="subtext">
-                            <h2></h2>
-                        </div>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+                <div id="main-content">
+                    <div id="main-sector-1" class="slides">
+                        <div id="main-sector-1-bg">
+                            <div id="main-sector-1-content">
+                                <h1>&lt;NaNStack /&gt; team </h1> 
+                                <div class="subtext">
+                                    <h2>Hello Hello! I'm Harvey Rousseau And I'm a Developer A Founder of a NaNStack Team</h2>
+                                </div>
+                            </div>
+                        </div>       
                     </div>
-                </div>       
+                    <div id="main-sector-2" class="slides"> there will be my detailed info </div>
+                    <div id="main-sector-3" class="slides"> there will be all interesting stuff in my coding way</div>
+                    <div id="main-sector-4" class="slides"> there will be something interesting</div>
+                    <div id="main-sector-5" class="slides"> there will be my contacts thankies and etc</div>
             </div>
-            <div id="main-sector-2"></div>
-            <div id="main-sector-3"></div>
-            <div id="main-sector-4"></div>
-            <div id="main-sector-5"></div>
-       </div>
-    </main>
-    <footer>
-        <p>&copy; <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://hello-NaNStack.com/">&lt;NaNStack /&gt;</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC-BY 4.0</a> - 2025</p> 
-    </footer>
+            </main>
+            <footer>
+                <p>&copy; <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://hello-NaNStack.com/">&lt;NaNStack /&gt;</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC-BY 4.0</a> - 2025</p> 
+            </footer>
+        </div>
+    </div>
 </body>
 <script id="GSAPUnite">
     //GSAP UNITE SCRIPT
@@ -79,40 +85,36 @@
             ease: "power3.out"
         });
 
-        //PIN sec 2-5
-        
-        let SecPin2 = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#main-sector-2',
-                pin: true,
-                start: 'top top', 
-                end: '+=0', 
-            }
+        // create smoother FIRST
+        const smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.1,        // soft smoothing
+        effects: true,
+        normalizeScroll: true
         });
-        let SecPin3 = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#main-sector-3',
-                pin: true,
-                start: 'top top', 
-                end: '+=0', 
-            }
+
+        // then pin slides for snap
+        gsap.utils.toArray(".slides").forEach((slide, i) => {
+        ScrollTrigger.create({
+            trigger: slide,
+            start: "top top",
+            end: "+=0", 
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1
         });
-        let SecPin4 = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#main-sector-4',
-                pin: true,
-                start: 'top top', 
-                end: '+=0', 
-            }
         });
-        let SecPin5 = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#main-sector-5',
-                pin: true,
-                start: 'top top', 
-                end: '+=0', 
-            }
+
+        // SCROLL SNAP
+        ScrollTrigger.create({
+        snap: {
+            snapTo: 1 / (document.querySelectorAll(".slides").length - 1), // divide scroll into equal steps
+            duration: 0.4,
+            ease: "power1.inOut"
+        }
         });
+
 
 </script>
 </html>
@@ -132,4 +134,7 @@
     i like move it move it 
         i like 
         move it 
+-->
+<!-- hey agent i need a website content can you put it here?
+ 
 -->
