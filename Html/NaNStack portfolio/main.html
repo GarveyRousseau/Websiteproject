@@ -38,6 +38,26 @@
             align-items: center;
             justify-content: center;
         }
+        footer {
+            position: relative;
+            width: 100%;
+            background-color: var(--b); 
+            color: var(--ta);  /* soft accent color */
+            text-align: center;
+            padding: 0px 20px 40px 20px;
+            overflow: hidden;
+            font-family: 'DepartureMono-Regular', monospace;
+            z-index: 2;
+        }
+
+        #main-sector-5 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* content top, footer bottom */
+            align-items: center;
+            min-height: 100vh;
+            position: relative; /* for wave positioning */
+        }
 
     </style>
 </head>
@@ -49,22 +69,65 @@
                     <div id="main-sector-1" class="slides">
                         <div id="main-sector-1-bg">
                             <div id="main-sector-1-content">
-                                <h1>&lt;NaNStack /&gt; team </h1> 
+                                <h1 class="effect-ScrambleText">&lt;NaNStack /&gt; Team</h1>
                                 <div class="subtext">
-                                    <h2>Hello Hello! I'm Harvey Rousseau And I'm a Developer A Founder of a NaNStack Team</h2>
+                                    <h2>Hello! I'm Harvey Rousseau, Developer & Founder of NaNStack Team</h2>
+                                    <p>Turning ideas into websites & scripts. Welcome to my portfolio!</p>
                                 </div>
                             </div>
                         </div>       
                     </div>
-                    <div id="main-sector-2" class="slides"> there will be my detailed info </div>
-                    <div id="main-sector-3" class="slides"> there will be all interesting stuff in my coding way</div>
-                    <div id="main-sector-4" class="slides"> there will be something interesting</div>
-                    <div id="main-sector-5" class="slides"> there will be my contacts thankies and etc</div>
-            </div>
-            </main>
-            <footer>
-                <p>&copy; <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://hello-NaNStack.com/">&lt;NaNStack /&gt;</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC-BY 4.0</a> - 2025</p> 
-            </footer>
+                    <div id="main-sector-2" class="slides"> 
+                        <div id="main-sector-2-content">
+                            <h2>About Me</h2>
+                            <p>I'm Harvey Rousseau, 17 years old. As you saw, I develop websites and scripts — mostly websites.</p>
+                            <p>I love experimenting with code, learning new frameworks, and creating cool interactive web stuff.</p>
+                            <p>Fun fact: I started coding seriously when I was 16 after seeing a guy build a game, and it inspired me to create my first fully working website two months later.</p>
+                        </div>
+                    </div>
+                    <div id="main-sector-3" class="slides">
+                        <div id="main-sector-3-content">
+                            <h2>My Coding Journey</h2>
+                            <p>Some friends started coding with me back then, but I’m now the last one still active.</p>
+                            <p>Over the past year I’ve been sharpening my skills, building websites, experimenting with JS, CSS animations, and exploring GSAP for interactive effects.</p>
+                            <p>For me, coding is now not just a hobby — it’s my career path and my passion.</p>
+                        </div>    
+                    </div>
+                    <div id="main-sector-4" class="slides"> 
+                        <div id="main-sector-4-content">
+                            <h2>Fun & Hobbies</h2>
+                            <ul>
+                                <li>Furry & creative expression through my fursona</li>
+                                <li>Exploring gremlin/goblin/femboy aesthetics</li>
+                                <li>Psychological horror movies & abandoned places</li>
+                                <li>Motorcycles & adventures</li>
+                                <li>Music & drawing</li>
+                            </ul>
+                            <p>I like to mix my hobbies with coding to make interactive, personal, and stylish websites.</p>
+                        </div>
+                    </div>
+                    <div id="main-sector-5" class="slides"> 
+                        <div id="main-sector-5-content">
+                            <h2>Contact Me</h2>
+                            <p>Let’s connect!</p>
+                            <ul>
+                                <li>Email: <a href="mailto:hello@nanstack.com">hello@nanstack.com</a></li>
+                                <li>Discord: UwU_platok_WuW#1234</li>
+                                <li>Twitter: <a href="https://twitter.com/NaNStack">@NaNStack</a></li>
+                                <li>GitHub: <a href="https://github.com/HarveyRousseau">HarveyRousseau</a></li>
+                            </ul>
+                            <p>Thank you for visiting &lt;NaNStack /&gt; portfolio!</p>
+                        </div>
+                        <footer>
+                            <div id="footer-bg">
+                                <div id="footer-content">
+                                    <p>&copy; <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://hello-NaNStack.com/">&lt;NaNStack /&gt;</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC-BY 4.0</a> - 2025</p> 
+                                </div>
+                            </div>      
+                        </footer>
+                    </div>
+                </div>
+            </main>  
         </div>
     </div>
 </body>
