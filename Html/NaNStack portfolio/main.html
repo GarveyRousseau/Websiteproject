@@ -19,8 +19,8 @@
         :root {
             --b:#000000;
             --w: #FFFFFF;
-            --m1: #312322;
-            --m2: #412414;
+            --m1: #271c25;
+            --m2: #2b0f29;
             --a1: #532637;
             --t2: #936871;
             --t1: #B68782;
@@ -31,34 +31,57 @@
             overflow: hidden;
         }
 
-        html, body { font-family: 'DepartureMono-Regular', monospace; padding: 0; margin: 0; height: 100%; width: 100%;}
+        html, body {
+            color: var(--t1);
+            font-family: 'DepartureMono-Regular', monospace; 
+            padding: 0; 
+            margin: 0; 
+            height: 100%; 
+            width: 100%;
+        }
+
         .slides {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         footer {
-            position: relative;
             width: 100%;
             background-color: var(--b); 
             color: var(--ta);  /* soft accent color */
             text-align: center;
             padding: 0px 20px 40px 20px;
-            overflow: hidden;
-            font-family: 'DepartureMono-Regular', monospace;
-            z-index: 2;
+            position: fixed;
+            bottom: 0px;
         }
-
+        #main-sector-1 {
+            background: linear-gradient(30deg, var(--m1), var(--m2));
+        }
+        #main-sector-2 {}
+        #main-sector-3 {}
+        #main-sector-4 {}
         #main-sector-5 {
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* content top, footer bottom */
+            justify-content: flex-start;
             align-items: center;
             min-height: 100vh;
-            position: relative; /* for wave positioning */
+            width: 100%;
+            position: relative;
         }
-
+        #main-sector-1-content {}
+        #main-sector-2-content {}
+        #main-sector-3-content {}
+        #main-sector-4-content {}
+        #main-sector-5-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -117,17 +140,18 @@
                                 <li>GitHub: <a href="https://github.com/HarveyRousseau">HarveyRousseau</a></li>
                             </ul>
                             <p>Thank you for visiting &lt;NaNStack /&gt; portfolio!</p>
+                            <footer>
+                                <div id="footer-bg">
+                                    <div id="footer-content">
+                                        <p>&copy; <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://hello-NaNStack.com/">&lt;NaNStack /&gt;</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC-BY 4.0</a> - 2025</p> 
+                                    </div>
+                                </div>      
+                            </footer>
                         </div>
-                        <footer>
-                            <div id="footer-bg">
-                                <div id="footer-content">
-                                    <p>&copy; <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://hello-NaNStack.com/">&lt;NaNStack /&gt;</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC-BY 4.0</a> - 2025</p> 
-                                </div>
-                            </div>      
-                        </footer>
                     </div>
                 </div>
             </main>  
+
         </div>
     </div>
 </body>
@@ -159,18 +183,21 @@
 
         // then pin slides for snap
         gsap.utils.toArray(".slides").forEach((slide, i) => {
-        ScrollTrigger.create({
-            trigger: slide,
-            start: "top top",
-            end: "+=0", 
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1
-        });
-        });
-
+            ScrollTrigger.create({
+                trigger: slide,
+                start: "top top",
+                end: "+=0", 
+                pin: true,
+                pinSpacing: true,
+                anticipatePin: 1
+            });
+         });
+         
         // SCROLL SNAP
         ScrollTrigger.create({
+        trigger: "#main-content",
+        start: "top top",
+        end: "bottom bottom",
         snap: {
             snapTo: 1 / (document.querySelectorAll(".slides").length - 1), // divide scroll into equal steps
             duration: 0.4,
