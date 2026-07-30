@@ -45,7 +45,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harvey & Friends | Exploration Hub</title>
+  <title>protfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/thegoodmonolith" rel="stylesheet">
                            
@@ -135,7 +135,7 @@
       #parallax-6 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer6-new.png"); }
       #parallax-7 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer7-new.png"); }
       #parallax-8 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer8-new.png"); }
-      #parallax-9 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer9-new.png"); }
+      #parallax-9 { background-image: url("https://raw.githubusercontent.com/GarveyRousseau/Websiteproject/refs/heads/main/BG-NEW/layer9-new.svg"); }
 
       #parallax-t { display: flex; top: -20vh; align-items: center; justify-content: center; text-align: center; height: 100%; flex-direction: column;}
       #parallax-t h1 { font-size: 4em; text-align: center; }
@@ -175,7 +175,7 @@
           <div id="parallax-6" class="parallax-img parallax" data-speed="55"></div>
           <div id="parallax-7" class="parallax-img parallax" data-speed="40"></div>
           <div id="parallax-8" class="parallax-img parallax" data-speed="20"></div>
-          <div id="parallax-9" class="parallax-img parallax" data-speed="1"></div>
+          <div id="parallax-9" class="parallax-img parallax" data-speed="0"></div>
         </div>
       </div>
       <!-- Title and welcome message (Заголовок и приветственное сообщение) -->
@@ -291,17 +291,6 @@
     smooth: 0.5,  
   });
 
-  // SHORT TITLE TEXT ROTATION
-  let shorttitlequote = gsap.timeline({repeat: -1, repeatDelay: 0});
-  shorttitlequote.to(".short-title-quote", {duration: 5, scrambleText: {text: "\"Fail fast. Learn faster. Keep moving.\"", speed: 1, chars: "@#&%0/\\|><"}}, "+=15")
-                .to(".short-title-quote-ps", {duration: 5, scrambleText: {text: "- Elon Musk, 2013", speed: 1, chars: "@#&%0/\\|><"}}, "-=5")
-                .to(".short-title-quote", {duration: 5, scrambleText: {text: "\"Courage doesn’t mean you don’t get afraid. Courage means you don’t let fear stop you.\"", speed: 1, chars: "@#&%0/\\|><"}}, "+=15")
-                .to(".short-title-quote-ps", {duration: 5,scrambleText: {text: "- Bethany Hamilton, 2007", speed: 1, chars: "@#&%0/\\|><"}}, "-=5")
-                .to(".short-title-quote", {duration: 5,scrambleText: {text: "\"The best way to predict the future is to create it.\"", speed: 1, chars: "@#&%0/\\|><"}}, "+=15")
-                .to(".short-title-quote-ps", {duration: 5, scrambleText: {text: "- Peter Drucker, 1966", speed: 1, chars: "@#&%0/\\|><"}}, "-=5")
-                .to(".short-title-quote", {duration: 5, scrambleText: {text: "\"You don’t learn to walk by following rules. You learn by doing, and by falling over.\"", speed: 1, chars: "@#&%0/\\|><"}}, "+=15")
-                .to(".short-title-quote-ps", {duration: 5, scrambleText: {text: "- Richard Branson 2006", speed: 1, chars: "@#&%0/\\|><"}}, "-=5")
-
   // SCRAMBLE-GLITCH THINGY ON START OF THE PAGE
   gsap.to(".scramble-glitch", {
       duration: 10,
@@ -312,85 +301,6 @@
       },
       ease: "power3.out"
   });
-    
-  gsap.utils.toArray(".slide").forEach((panel, i) => {
-    ScrollTrigger.create({
-      trigger: panel,
-      start: "top top",
-      end: "bottom top",
-      snap: 1, 
-      scrub: true
-    });
-  });
-
-    //slide timelines
-  let slide1 = gsap.timeline({
-      scrollTrigger: {
-          trigger: '#slide-1',
-          pin: true,
-          start: 'top top', 
-          end: '+=0', 
-      }
-  .to()
-  });
-
-  let slide2 = gsap.timeline({
-      scrollTrigger: {
-          trigger: '#slide-2',
-          pin: true,
-          start: 'top top', 
-          end: '+=0', 
-      }
-
-  });
-
-  let slide3 = gsap.timeline({
-      scrollTrigger: {
-          trigger: '#slide-3',
-          pin: true,
-          start: 'top top', 
-          end: '+=0', 
-      }
-
-  });
-  let slide4 = gsap.timeline({
-      scrollTrigger: {
-          trigger: '#slide-4',
-          pin: true,
-          start: 'top top', 
-          end: '+=0', 
-      }
-
-  });
-  let slide5 = gsap.timeline({
-      scrollTrigger: {
-          trigger: '#slide-5',
-          pin: true,
-          start: 'top top', 
-          end: '+=0', 
-      }
-
-  });
-  let slide6 = gsap.timeline({
-      scrollTrigger: {
-          trigger: '#slide-6',
-          pin: true,
-          start: 'top top', 
-          end: '+=0', 
-      }
-
-  });
-  let slide7 = gsap.timeline({
-      scrollTrigger: {
-          trigger: '#slide-7',
-          pin: true,
-          start: 'top top', 
-          end: '+=0', 
-      }
-
-      
-  });
-  
   
   </script> 
 </html>
